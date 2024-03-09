@@ -31,7 +31,7 @@ export function setupUI(game: Game): void {
 
         // Gas message
         $("#gas-msg-info")
-            .text("Toxic gas is advancing! Move to the safe zone")
+            .text("O gás tóxico está avançando! Vá para a zona segura")
             .css("color", "cyan");
         $("#gas-msg").show();
 
@@ -43,7 +43,7 @@ export function setupUI(game: Game): void {
             killFeedItem.addClass("kill-feed-item");
             // noinspection HtmlUnknownTarget
             killFeedItem.html(
-                '<img class="kill-icon" src="./img/misc/skull_icon.svg" alt="Skull"> Player killed Player with Mosin-Nagant'
+                '<img class="kill-icon" src="./img/misc/skull_icon.svg" alt="Skull"> Jogador matou Jogador com Mosin-Nagant'
             );
             $("#kill-feed").prepend(killFeedItem);
         }
@@ -191,9 +191,9 @@ export function setupUI(game: Game): void {
     });
 
     $("#btn-report").on("click", () => {
-        if (confirm(`Are you sure you want to report this player?
-Players should only be reported for teaming or hacking.
-Video evidence is required.`)) {
+        if (confirm(`Tem certeza de que deseja denunciar este jogador?
+Os jogadores só devem ser denunciados por formar equipes ou hackear.
+Evidência de vídeo é necessária.`)) {
             sendSpectatePacket(SpectateActions.Report);
         }
     });
@@ -671,8 +671,8 @@ Video evidence is required.`)) {
 
     // Reset settings
     $("#reset-settings-btn").on("click", () => {
-        if (!confirm("This option will reset all settings and reload the page. Continue?")) return;
-        if (!confirm("Are you sure? This action cannot be undone.")) return;
+        if (!confirm("Esta opção irá redefinir todas as configurações e recarregar a página. Continuar?")) return;
+        if (!confirm("Tem certeza? Essa ação não pode ser desfeita.")) return;
         localStorage.removeItem("suroi_config");
         window.location.reload();
     });

@@ -1,331 +1,320 @@
-import { ItemType, ObjectDefinitions, type ItemDefinition } from "../utils/objectDefinitions";
-
-export interface SkinDefinition extends ItemDefinition {
-    readonly itemType: ItemType.Skin
-    readonly hideFromLoadout?: boolean
-    readonly grassTint?: boolean
-    readonly hideEquipment?: boolean
-    readonly roleRequired?: string
-}
-
-export const Skins = new ObjectDefinitions<SkinDefinition>([
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Skins = void 0;
+const objectDefinitions_1 = require("../utils/objectDefinitions");
+exports.Skins = new objectDefinitions_1.ObjectDefinitions([
     {
         idString: "hasanger",
         name: "Hasanger",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         roleRequired: "hasanger"
     },
     {
         idString: "leia",
         name: "Leia",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         roleRequired: "leia"
     },
     {
         idString: "limenade",
         name: "LimeNade",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         roleRequired: "limenade"
     },
     {
         idString: "katie",
         name: "Katie",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         roleRequired: "katie"
     },
     {
         idString: "eipi",
         name: "eiπ",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         roleRequired: "eipi"
-    },
-    {
-        idString: "123op",
-        name: "123OP",
-        itemType: ItemType.Skin,
-        roleRequired: "123op"
     },
     {
         idString: "radians",
         name: "Radians",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         roleRequired: "radians"
     },
     {
         idString: "developr",
         name: "Developr Swag",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         roleRequired: "developr"
     },
     {
         idString: "designr",
         name: "Designr Swag",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         roleRequired: "designr"
     },
     {
         idString: "hazel_jumpsuit",
-        name: "HAZEL Jumpsuit",
-        itemType: ItemType.Skin
+        name: "ZYAN",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "forest_camo",
-        name: "Forest Camo",
-        itemType: ItemType.Skin
+        name: "Biel",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "desert_camo",
-        name: "Desert Camo",
-        itemType: ItemType.Skin
+        name: "Guili",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "arctic_camo",
-        name: "Arctic Camo",
-        itemType: ItemType.Skin
+        name: "JG",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "bloodlust",
-        name: "Bloodlust",
-        itemType: ItemType.Skin
+        name: "PH",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "tomato_skin",
-        name: "Tomato",
-        itemType: ItemType.Skin
+        name: "Lipe",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "greenhorn",
-        name: "Greenhorn",
-        itemType: ItemType.Skin
+        name: "Lucy",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "blue_blood",
-        name: "Blue Blood",
-        itemType: ItemType.Skin
+        name: "Lian",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "silver_lining",
-        name: "Silver Lining",
-        itemType: ItemType.Skin
+        name: "Persson",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "pot_o_gold",
-        name: "Pot o' Gold",
-        itemType: ItemType.Skin
+        name: "Pajitnov",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "gunmetal",
-        name: "Gunmetal",
-        itemType: ItemType.Skin
+        name: "Luca",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "algae",
-        name: "Algae",
-        itemType: ItemType.Skin
+        name: "Hung Ming",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "twilight_zone",
-        name: "Twilight Zone",
-        itemType: ItemType.Skin
+        name: "Larry",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "bubblegum",
-        name: "Bubblegum",
-        itemType: ItemType.Skin
+        name: "Satoshi",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "sunrise",
-        name: "Sunrise",
-        itemType: ItemType.Skin
+        name: "Shigeru",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "sunset",
-        name: "Sunset",
-        itemType: ItemType.Skin
+        name: "Min-Liang",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "stratosphere",
-        name: "Stratosphere",
-        itemType: ItemType.Skin
+        name: "Sampo",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "mango",
-        name: "Mango",
-        itemType: ItemType.Skin
+        name: "Aapo",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "snow_cone",
-        name: "Snow Cone",
-        itemType: ItemType.Skin
+        name: "Ash",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "aquatic",
-        name: "Aquatic",
-        itemType: ItemType.Skin
+        name: "Baszucki",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "floral",
-        name: "Floral",
-        itemType: ItemType.Skin
+        name: "777",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "sunny",
-        name: "Sunny",
-        itemType: ItemType.Skin
+        name: "Fannini",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "volcanic",
-        name: "Volcanic",
-        itemType: ItemType.Skin
+        name: "Paul",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "ashfall",
         name: "Ashfall",
-        itemType: ItemType.Skin
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "solar_flare",
-        name: "Solar Flare",
-        itemType: ItemType.Skin
+        name: "ENIAC",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "beacon",
-        name: "Beacon",
-        itemType: ItemType.Skin
+        name: "Plankalkül",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "wave_jumpsuit",
-        name: "Wave Jumpsuit",
-        itemType: ItemType.Skin
+        name: "Linux",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "toadstool",
-        name: "Toadstool",
-        itemType: ItemType.Skin
+        name: "Pucci",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "full_moon",
-        name: "Full Moon",
-        itemType: ItemType.Skin
+        name: "Lua 92",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "basic_outfit",
-        name: "Basic Outfit",
-        itemType: ItemType.Skin,
+        name: "Saks",
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "swiss_cheese",
-        name: "Swiss Cheese",
-        itemType: ItemType.Skin
+        name: "Fancy",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "target_practice",
-        name: "Target Practice",
-        itemType: ItemType.Skin
+        name: "Yoda",
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "zebra",
         name: "Zebra",
-        itemType: ItemType.Skin
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "tiger",
         name: "Tiger",
-        itemType: ItemType.Skin
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "bee",
         name: "Bee",
-        itemType: ItemType.Skin
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "armadillo",
         name: "Armadillo",
-        itemType: ItemType.Skin
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "printer",
         name: "Printer",
-        itemType: ItemType.Skin
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "distant_shores",
         name: "Distant Shores",
-        itemType: ItemType.Skin
+        itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "peppermint",
         name: "Peppermint",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "spearmint",
         name: "Spearmint",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "coal",
         name: "Coal",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "henrys_little_helper",
         name: "Henry's Little Helper",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "candy_cane",
         name: "Candy Cane",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "christmas_tree_skin",
         name: "Christmas Tree",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "gingerbread",
         name: "Gingerbread",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "verified",
         name: "Verified",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "nokilpls",
         name: "no kil pls",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "stardust",
         name: "Stardust",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "aurora",
         name: "Aurora",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "ghillie_suit",
         name: "Ghillie Suit",
-        itemType: ItemType.Skin,
+        itemType: objectDefinitions_1.ItemType.Skin,
         grassTint: true,
         hideEquipment: true,
         hideFromLoadout: true
     }
 ]);
+//# sourceMappingURL=skins.js.map

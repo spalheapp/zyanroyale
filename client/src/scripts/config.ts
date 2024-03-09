@@ -1,6 +1,6 @@
 export const Config = {
     regions: {
-        default: { name: "Mata Mata", address: "146.19.9.234", https: true },
+        default: { name: "Mata Mata", address: "0.0.0.0:8000", https: true },
     },
     defaultRegion: "default",
     mode: "normal"

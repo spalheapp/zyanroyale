@@ -1,6 +1,7 @@
 export const Config = {
     regions: {
-        dev: { name: "Mata Mata", address: "127.0.0.1:8000", https: false },
+        dev: { name: "Mata Mata", address: "146.19.9.234:8000", https: true },
+        nj: { name: "New Jersey", address: "islandrain.compositr.dev", https: true },
     },
     defaultRegion: "dev",
     mode: "normal"

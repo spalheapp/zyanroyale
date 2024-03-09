@@ -53,117 +53,117 @@ exports.Skins = new objectDefinitions_1.ObjectDefinitions([
     },
     {
         idString: "hazel_jumpsuit",
-        name: "ZYAN",
+        name: "HAZEL Jumpsuit",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "forest_camo",
-        name: "Biel",
+        name: "Forest Camo",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "desert_camo",
-        name: "Guili",
+        name: "Desert Camo",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "arctic_camo",
-        name: "JG",
+        name: "Arctic Camo",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "bloodlust",
-        name: "PH",
+        name: "Bloodlust",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "tomato_skin",
-        name: "Lipe",
+        name: "Tomato",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "greenhorn",
-        name: "Lucy",
+        name: "Greenhorn",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "blue_blood",
-        name: "Lian",
+        name: "Blue Blood",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "silver_lining",
-        name: "Persson",
+        name: "Silver Lining",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "pot_o_gold",
-        name: "Pajitnov",
+        name: "Pot o' Gold",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "gunmetal",
-        name: "Luca",
+        name: "Gunmetal",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "algae",
-        name: "Hung Ming",
+        name: "Algae",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "twilight_zone",
-        name: "Larry",
+        name: "Twilight Zone",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "bubblegum",
-        name: "Satoshi",
+        name: "Bubblegum",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "sunrise",
-        name: "Shigeru",
+        name: "Sunrise",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "sunset",
-        name: "Min-Liang",
+        name: "Sunset",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "stratosphere",
-        name: "Sampo",
+        name: "Stratosphere",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "mango",
-        name: "Aapo",
+        name: "Mango",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "snow_cone",
-        name: "Ash",
+        name: "Snow Cone",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "aquatic",
-        name: "Baszucki",
+        name: "Aquatic",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "floral",
-        name: "777",
+        name: "Floral",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "sunny",
-        name: "Fannini",
+        name: "Sunny",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "volcanic",
-        name: "Paul",
+        name: "Volcanic",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
@@ -173,43 +173,43 @@ exports.Skins = new objectDefinitions_1.ObjectDefinitions([
     },
     {
         idString: "solar_flare",
-        name: "ENIAC",
+        name: "Solar Flare",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "beacon",
-        name: "Plankalkül",
+        name: "Beacon",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "wave_jumpsuit",
-        name: "Linux",
+        name: "Wave Jumpsuit",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "toadstool",
-        name: "Pucci",
+        name: "Toadstool",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "full_moon",
-        name: "Lua 92",
+        name: "Full Moon",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "basic_outfit",
-        name: "Saks",
+        name: "Basic Outfit",
         itemType: objectDefinitions_1.ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "swiss_cheese",
-        name: "Fancy",
+        name: "Swiss Cheese",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {
         idString: "target_practice",
-        name: "Yoda",
+        name: "Target Practice",
         itemType: objectDefinitions_1.ItemType.Skin
     },
     {

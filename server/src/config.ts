@@ -15,8 +15,8 @@ export enum GasMode {
 }
 
 export const Config = {
-    host: "146.19.9.234",
-    port: 22,
+    host: "0.0.0.0",
+    port: 8000,
 
     mapName: "main",
 

@@ -4,17 +4,17 @@ import { type NewsPost } from "./newsHelper";
 export const news: NewsPost[] = [
     {
         date: 1708892369000,
-        author: "HAZEL",
-        title: "A Sailor's Dream",
+        author: "ZYAN",
+        title: "O sonho de um marinheiro",
         bannerImage: "../img/news/v0.16.0.png",
-        content: `We're back with new guns, structures, and more for ye landlubbers to check out! Two new powerful weapons are available in golden airdrops, and a new sniper has joined the ranks. Where do you find it? Why, in the captain's tugboat, of course! The soggy pants will be worth it.<br><br>
+        content: `Estamos de volta com novas armas, estruturas e muito mais para os marinheiros conferirem! Duas novas armas poderosas estão disponíveis em lançamentos aéreos dourados, e um novo atirador se juntou às fileiras. Onde você encontrou? Ora, no rebocador do capitão, claro! As calças encharcadas valerão a pena.<br><br>
 
-Lily pads, river crates, bridges, and more are making an appearance this update, as well as a multitude of changes and bug fixes to make your experience better. Duos are coming in the next update, so stay tuned!`,
-        longContent: `<h2>Suroi v0.16.0</h2>
-<h3>New features</h3>
+Vitórias-régias, caixotes de rio, pontes e muito mais estão aparecendo nesta atualização, bem como uma infinidade de mudanças e correções de bugs para tornar sua experiência melhor. Duplas chegarão na próxima atualização, então fique ligado!`,
+        longContent: `<h2>Zyan v0.16.0</h2>
+<h3>Novas características</h3>
 <ul>
-  <li>New structures: tugboat, sea traffic control, bridges.</li>
-  <li>New guns: Model 89 (a DMR), CZ-600 (a sniper), and PP-19 (a suppressed SMG).</li>
+  <li>Novas estruturas: rebocadores, controlo de tráfego marítimo, pontes.</li>
+  <li>Novas armas: Modelo 89 (um DMR), CZ-600 (um franco-atirador) e PP-19 (um SMG suprimido).</li>
   <li>New crate: river crate.</li>
   <li>New obstacles: lily pads.</li>
   <li>New crate: grenade box. Sometimes spawns in place of boxes in the warehouse.</li>
@@ -45,7 +45,7 @@ Lily pads, river crates, bridges, and more are making an appearance this update,
     },
     {
         date: 1705262400000,
-        author: "HAZEL",
+        author: "ZYAN",
         title: "Pulling the Pin",
         bannerImage: "../img/news/v0.15.0.png",
         content: `Yank a pin out, cook the 'nade, and toss it to blow your enemy sky high! The throwables update is here and brings a plethora of new features and content the game.<br><br>
@@ -57,7 +57,7 @@ Two new powerful weapons have made it ashore in this update: the Vepr-12 and the
 The first new building (in a while!) also makes its debut. The armory is a bastion of strength for the island, and the weapons and density of loot live up to that. Explore the office, bunkhouse, APC, and the vault, which contains powerful loot.<br><br>
 
 There are a bunch more new features to check out, such as a new port layout (including an oil tanker!), mobile home, Viking chests, the seax, maul, and major UI changes. Stay survivn'!`,
-        longContent: `<h2>Suroi v0.15.0</h2>
+        longContent: `<h2>Zyan v0.15.0</h2>
 <h3>New features</h3>
 <ul>
   <li>**Throwables!** Added frag grenades and smoke grenades. Other throwables, like mines and MIRV equivalents, will be added in a future update.</li>
@@ -86,13 +86,13 @@ There are a bunch more new features to check out, such as a new port layout (inc
     },
     {
         date: 1702328915000,
-        author: "HAZEL",
+        author: "ZYAN",
         title: "Double Trouble",
         bannerImage: "../img/news/v0.14.0.png",
         content: `The weather grows cold, the trees lose their leaves, and the snowdrifts pile high. But we've got a couple new features to spice up the winter season! The entire map has been reskinned to frosty perfection, with more surprises in store soon! Also, we've added the long-awaited dual-wielding feature for pistols—if one isn't enough, grab another for twice the firepower!<br><br>
 
 Of course, we've made a few changes and fixes, including a circular action timer, reworked airdrops, and a larger map grid. Go warm yourself up with a toasty chicken dinner!`,
-        longContent: `<h2>Suroi v0.14.0</h2>
+        longContent: `<h2>Zyan v0.14.0</h2>
 <h3>New features</h3>
 <ul>
   <li><strong>Winter mode!</strong> Just a reskin for now. More content coming soon.</li>
@@ -129,13 +129,13 @@ Of course, we've made a few changes and fixes, including a circular action timer
     },
     {
         date: 1701085392000,
-        author: "HAZEL",
+        author: "ZYAN",
         title: "Terminal Velocity",
         bannerImage: "../img/news/v0.13.0.png",
         content: `Expect routine supply shipments from the A.E.G.I.S. aeronautical division, complete with everything you need to win a savory chicken dinner! Or, notify them directly by using a radio to get your own personal airdrop. If you're lucky, you'll get one of the 3 new and very powerful guns!<br><br>
 
 Erosion has worked its magic on the island, and rivers look much cleaner than they ever have before. We've made a whole host of changes and bug fixes, including better mobile layout and building visibility. Get out there, these airdrops are comin' in hot!`,
-        longContent: `<h2>Suroi v0.13.0</h2>
+        longContent: `<h2>Zyan v0.13.0</h2>
 <h3>New features</h3>
 <ul>
   <li>Airdrops! Two airdrops now spawn every game. They can also be called with radios, which are a rare drop from crates.</li>
@@ -175,13 +175,13 @@ Erosion has worked its magic on the island, and rivers look much cleaner than th
     },
     {
         date: 1698602400000,
-        author: "HAZEL",
+        author: "ZYAN",
         title: "Trick-or-Tweak",
         bannerImage: "../img/news/v0.12.0.png",
         content: `The island grows dark. The trees begin to turn, the rivers run red, and the full moon rises. A new spooky orange obstacle drops one of two new weapons: a training weapon from A.E.G.I.S. stores, and a very powerful shotgun specially modified by H.A.Z.E.L.'s R&D team.<br><br>
 
 After checking out these frightening additions, enjoy your candy while reading all the bug fixes and QoL changes this update brings. Happy Halloween!`,
-        longContent: `<h2>Suroi v0.12.0</h2>
+        longContent: `<h2>Zyan v0.12.0</h2>
 <h3>Changelog</h3>
 <ul>
   <li>Halloween mode! Added 2 new guns and a new obstacle. Reskinned trees & blueberry bushes. New menu music.</li>
@@ -221,7 +221,7 @@ After checking out these frightening additions, enjoy your candy while reading a
     },
     {
         date: 1698001957000,
-        author: "HAZEL",
+        author: "ZYAN",
         title: "Making Waves",
         bannerImage: "../img/news/v0.11.0.png",
         content: `The island grows ever busier with the newest structure, the port. Search the warehouses and shipping containers for loot, 'cause they’re packed! Containers can also be found throughout the island. But the most valuable loot is contained in the bow of the massive container ship. A highly prized sniper lies within, but you’ll need to solve a puzzle to get in.<br><br>
@@ -231,7 +231,7 @@ If you like swimming, you’re in luck! Rivers now snake through the landscape, 
 We've added two new guns to our arsenal: the Flues, a sawn-off double-barrel shotgun, and the M1895, a revolver.<br><br>
 
 In addition, we've made many quality of life changes, including shorter guns, custom crosshairs, and a kill leader mechanic.`,
-        longContent: `<h2>Suroi v0.11.0</h2>
+        longContent: `<h2>Zyan v0.11.0</h2>
 <h3>New features & changes</h3>
 <ul>
   <li>Rivers & ocean! Rivers have been added. The ocean is now accessible.</li>
@@ -274,7 +274,7 @@ In addition, we've made many quality of life changes, including shorter guns, cu
     },
     {
         date: 1694706686000,
-        author: "HAZEL",
+        author: "ZYAN",
         title: "Back with a Bang",
         bannerImage: "../img/news/v0.10.0.png",
         content: `Despite the construction delays, we're back on the island to officially open the newest building: the refinery! Full of plenty of loot, but watch out or the whole place could go ka-boom...<br><br>
@@ -282,7 +282,7 @@ In addition, we've made many quality of life changes, including shorter guns, cu
 We're also happy to announce a large shipment containing 4 new types of guns, including two new DMRs! One gun is Italian, and three are American. Sources indicate the new LMG is particularly potent...<br><br>
 
 Our scouts have fully mapped out the island, including its beaches. We've decided to begin adding name markers to the map to aid in navigation. You're welcome!`,
-        longContent: `<h2>Suroi v0.10.0</h2>
+        longContent: `<h2>Zyan v0.10.0</h2>
 
 <h3>New features & changes</h3>
 <ul>
@@ -311,15 +311,15 @@ Special thanks to Leia and platonthek. This update wouldn't have been possible w
     },
     {
         date: 1690748181000,
-        author: "HAZEL",
+        author: "ZYAN",
         title: "Behind Closed Doors",
         bannerImage: "../img/news/v0.9.0.png",
-        content: `We at HAZEL are proud to announce the construction of 3 new structures on the island. The cozy house is a great place to spend the night…although you’ll want to leave before the gas catches you. The warehouse, though abandoned, still contains some unopened shipments, just waiting to be looted. Lastly, if you need to do some “business”, there are plenty of porta potties around for that purpose.<br><br>
+        content: `We at ZYAN are proud to announce the construction of 3 new structures on the island. The cozy house is a great place to spend the night…although you’ll want to leave before the gas catches you. The warehouse, though abandoned, still contains some unopened shipments, just waiting to be looted. Lastly, if you need to do some “business”, there are plenty of porta potties around for that purpose.<br><br>
 
 There are also two new Austrian arrivals to the island. Like the Micro Uzi but want something that packs more of a punch? The Steyr AUG might be for you. If you prefer a challenge, grab the all-new full auto pistol, the CZ-75A.<br><br>
 
 Surians can now customize their skins, and express themselves with emotes too! Everything is unlocked until accounts are added.`,
-        longContent: `<h2>Suroi v0.9.0</h2>
+        longContent: `<h2>Zyan v0.9.0</h2>
 
 <h3>New features & changes</h3>
 <ul>
@@ -339,10 +339,10 @@ Surians can now customize their skins, and express themselves with emotes too! E
     },
     {
         date: 1689622834000,
-        author: "HAZEL",
+        author: "ZYAN",
         title: "Untrodden Lands",
         content: `H.A.Z.E.L. has made various improvements to weapons systems to refine them further, and a small shipment of antiquated arms has been received from Flint Industries. Scouts have explored more of the island. We've mapped out the gas release points, allowing us to predict the gas's movement accurately. Additionally, new AR software updates have been pushed out to ensure battle readiness.`,
-        longContent: `<h2>Suroi v0.8.0</h2>
+        longContent: `<h2>Zyan v0.8.0</h2>
 
 <h3>New features & changes</h3>
 <ul>
@@ -359,10 +359,10 @@ Surians can now customize their skins, and express themselves with emotes too! E
     },
     {
         date: 1688950260000,
-        author: "HAZEL",
+        author: "ZYAN",
         title: "Geared Up",
         content: `A long-awaited shipment, containing helmets, vests, backpacks, and scopes, has finally arrived on the island! Pack in extra ammo with backpacks, protect yourself with helmets and vests, and get the jump on your enemy with scopes. Unfortunately, due to supply shortages, guns have become more scarce.`,
-        longContent: `<h2>Suroi v0.7.0</h2>
+        longContent: `<h2>Zyan v0.7.0</h2>
 
 <h3>New features & changes</h3>
 <ul>
@@ -373,10 +373,10 @@ Surians can now customize their skins, and express themselves with emotes too! E
     },
     {
         date: 1688328459000,
-        author: "HAZEL",
+        author: "ZYAN",
         title: "Tablets & Tweaks",
         content: `A new adrenaline item, tablets, can now be found! Tablets, along with all other healing items, can now be picked up and carried—but they no longer work instantly. Check out the Featured YouTubr and Streamr on the redesigned title screen! The kill feed and settings menu have also been redesigned. A golden object may drop a very powerful weapon...`,
-        longContent: `<h2>Suroi v0.6.0</h2>
+        longContent: `<h2>Zyan v0.6.0</h2>
 
 <h3>New features & changes</h3>
 <ul>
@@ -405,11 +405,11 @@ Surians can now customize their skins, and express themselves with emotes too! E
     },
     {
         date: 1687625334000,
-        author: "HAZEL",
+        author: "ZYAN",
         title: "Locked & Loaded",
         bannerImage: "../img/news/v0.5.0.png",
         content: `The newest supply shipment to the island has arrived, along with a slew of new weapons! Blast enemies all day long with the 47 round pan on the Lewis gun, or test your marksmanship with the Tango 51. Prefer hand-to-hand combat? The K-bar or the baseball bat may be for you. A glint of gold may yield a fruitful surprise...`,
-        longContent: `<h2>Suroi v0.5.0</h2>
+        longContent: `<h2>Zyan v0.5.0</h2>
 
 <h3>New features</h3>
 <ul>
@@ -423,94 +423,94 @@ Surians can now customize their skins, and express themselves with emotes too! E
     },
     {
         date: 1687026036000,
-        author: "Dr. Felix Sterling",
-        title: "Supplies received",
+        author: "Dr. Félix Sterling",
+        title: "Suprimentos recebidos",
         bannerImage: "../img/news/v0.4.0.png",
-        content: `We have received the new arms and supply shipment from Mr. Flint. In the crates were all four weapons promised: the Mosin-Nagant, Ithaca Model 37, SAF-200, and Glock 19. These should help us dramatically, as we were in great need of additional and varied firepower. Additionally, the new medical items, gauze, colas, and medikits, will allow better treatment of injuries. However, they were not of the portable variety we requested, and we hope to resolve this soon.`,
-        longContent: `<h2>Suroi v0.4.0</h2>
+        content: `Recebemos as novas armas e suprimentos do Sr. Flint. Nas caixas estavam todas as quatro armas prometidas: a Mosin-Nagant, a Ithaca Modelo 37, a SAF-200 e a Glock 19. Estas deveriam ajudar-nos dramaticamente, pois precisávamos muito de poder de fogo adicional e variado. Além disso, os novos itens médicos, gazes, refrigerantes e kits médicos, permitirão um melhor tratamento das lesões. No entanto, eles não eram do tipo portátil que solicitamos e esperamos resolver isso em breve.`,
+        longContent: `<h2>Zyan v0.4.0</h2>
 
-<h3>New features & changes</h3>
+<h3>Novos recursos e mudanças</h3>
 <ul>
-  <li>Loot! Crates now drop guns and healing items. Players no longer spawn with guns.</li>
-  <li>More guns! Added 4 guns: the Mosin-Nagant (a sniper), Model 37 (a pump shotgun), SAF-200 (a burst fire SMG), and G19 (a full auto pistol). Recoil has also been added, meaning guns slow you down when firing.</li>
-  <li>Server selector! You can now choose between 3 servers: one in North America (Detroit, Michigan), one in Europe (London, England), and one in Asia (Osaka, Japan).</li>
-  <li>Added an "Equip Other Gun" keybind (defaults to space bar).</li>
-  <li>Added a "Swap Gun Slots" keybind (defaults to T).</li>
-  <li>Added a keybind to toggle the minimap (defaults to N).</li>
-  <li>Added an option to disable mobile controls, for those playing on a mobile device with a mouse and keyboard.</li>
-  <li>Increased M3K fire rate; decreased damage.</li>
+  <li>Saque! As caixas agora deixam armas e itens de cura. Os jogadores não aparecem mais com armas.</li>
+  <li>Mais armas! Adicionadas 4 armas: a Mosin-Nagant (um franco-atirador), o Modelo 37 (uma espingarda de bomba), SAF-200 (uma SMG de explosão) e G19 (uma pistola totalmente automática). O recuo também foi adicionado, o que significa que as armas diminuem a velocidade ao disparar.</li>
+  <li>Seletor de servidor! Agora você pode escolher entre três servidores: um na América do Norte (Detroit, Michigan), um na Europa (Londres, Inglaterra) e um na Ásia (Osaka, Japão).</li>
+  <li>Adicionado um atalho de teclado "Equipar outra arma" (o padrão é barra de espaço).</li>
+  <li>Adicionado um atalho de teclado "Trocar slots de arma" (o padrão é T).</li>
+  <li>Adicionado um atalho de teclado para alternar o minimapa (o padrão é N).</li>
+  <li>Adicionada uma opção para desativar os controles móveis, para quem joga em um dispositivo móvel com mouse e teclado.</li>
+  <li>Aumento da taxa de disparo do M3K; dano diminuído.</li>
 </ul>
 
 <h3>Bug fixes</h3>
 <ul>
-  <li>Fixed a bug allowing players to move twice as fast when using the mobile controls and movement keys at the same time.</li>
-  <li>Fixed a bug causing players' fists to get stuck in incorrect positions.</li>
-  <li>Fixed weapon switch sounds playing for all players, not just the active player.</li>
+  <li>Corrigido um bug que permitia aos jogadores se moverem duas vezes mais rápido ao usar os controles móveis e as teclas de movimento ao mesmo tempo.</li>
+  <li>Corrigido um bug que fazia com que os punhos dos jogadores ficassem presos em posições incorretas.</li>
+  <li>Corrigimos os sons de troca de arma para todos os jogadores, não apenas para o jogador ativo.</li>
 </ul>`
     },
     {
         date: 1685914769000,
         author: "Dr. Petrova",
-        title: "Doublet State",
+        title: "Estado duplo",
         bannerImage: "../img/news/v0.3.0.png",
-        content: `A mysterious orange gas is now being reported around the island. We collected a sample and were able to convert it to a solid at -9.3°C, but found it to be very toxic. You’ve been warned! In other news, if you’re the last one on the island left, you’ll get your very own chicken dinner courtesy of HAZEL, the perfect meal to enjoy your victory!`,
-        longContent: `<h2>Suroi v0.3.0</h2>
-<h3>New features</h3>
+        content: `Um misterioso gás laranja está sendo relatado ao redor da ilha. Coletamos uma amostra e conseguimos convertê-la em sólido a -9,3°C, mas descobrimos que ela era muito tóxica. Voce foi avisado! Em outras notícias, se você for o último na ilha, receberá seu próprio jantar de frango, cortesia de ZYAN, a refeição perfeita para desfrutar de sua vitória!`,
+        longContent: `<h2>Zyan v0.3.0</h2>
+<h3>Novas características</h3>
 <ul>
-  <li>Gas! Toxic gas now slowly fills up the map as the game progresses.</li>
-  <li>Chicken dinners! If you're the last man standing, you now get to enjoy a delicious chicken dinner.</li>
-  <li>Minimap! There is now a minimap in the top left. To expand it, press G or M. On mobile, simply tap the map.</li>
-  <li>Mobile controls! Suroi is now playable on mobile. To use the controls, simply press and drag. The left joystick (left half of the screen) controls movement, and the right joystick (right half of the screen) controls aim and shooting.</li>
+  <li>Gás! O gás tóxico agora preenche lentamente o mapa conforme o jogo avança.</li>
+  <li>Jantares de frango! Se você for o último homem de pé, agora poderá desfrutar de um delicioso jantar de frango.</li>
+  <li>Minimapa! Agora existe um minimapa no canto superior esquerdo. Para expandi-lo, pressione G ou M. No celular, basta tocar no mapa.</li>
+  <li>Controles móveis! Zyan agora pode ser jogado em dispositivos móveis. Para usar os controles, basta pressionar e arrastar. O joystick esquerdo (metade esquerda da tela) controla o movimento, e o joystick direito (metade direita da tela) controla a mira e o tiro.</li>
 </ul>
 
 <h3>Bug fixes</h3>
 <ul>
-  <li>Bullets now spawn at the barrel of the gun instead of at the player body.</li>
-  <li>Fixed a visual bug causing bullets to go in the wrong direction near the edges of the map.</li>
-  <li>Fixed a bug causing the wrong gun to continue firing when quickswitching.</li>
-  <li>Fixed a bug allowing players to see more of the map by zooming out.</li>
+  <li>As balas agora aparecem no cano da arma em vez de no corpo do jogador.</li>
+  <li>Corrigido um bug visual que fazia com que as balas fossem na direção errada perto das bordas do mapa.</li>
+  <li>Corrigido um bug que fazia com que a arma errada continuasse disparando durante a troca rápida.</li>
+  <li>Corrigido um bug que permitia aos jogadores ver mais do mapa diminuindo o zoom.</li>
 </ul>`
     },
     {
         date: 1685317752000,
         author: "hasanger",
-        title: "Fun guns",
+        title: "Armas divertidas",
         bannerImage: "../img/news/v0.2.0.png",
-        content: `This week's update introduces guns, health crates, and keybinds! There are only 2 guns for now: the AK-47 and the M3K. More will be added soon.<br>If you're having issues with textures, try <a href="https://its.uiowa.edu/support/article/719">clearing your cache.</a>`,
-        longContent: `<h2>Suroi v0.2.0</h2>
-<h3>New features</h3>
+        content: `A atualização desta semana apresenta armas, caixas de saúde e atalhos de teclado! Existem apenas 2 armas por enquanto: a AK-47 e a M3K. Mais será adicionado em breve.<br>Se você estiver tendo problemas com texturas, tente <a href="https://its.uiowa.edu/support/article/719">limpando seu cache.</a>`,
+        longContent: `<h2>Zyan v0.2.0</h2>
+<h3>Novas características</h3>
 <ul>
-    <li>Guns! Added the AK-47 and M3K. More guns will be added soon, including the Mosin-Nagant.</li>
-    <li>Health crates! These crates restore your health when broken. They are a temporary addition and will be removed once proper healing items are added.</li>
-    <li>Keybinds! You can now remap keys. To edit keybinds, click the gear icon in the bottom right, or in-game, press Escape and click on Settings. Then, click on the Keybinds tab.</li>
+    <li>Armas! Adicionados o AK-47 e o M3K. Mais armas serão adicionadas em breve, incluindo a Mosin-Nagant.</li>
+    <li>Caixas de saúde! Essas caixas restauram sua saúde quando quebradas. Eles são uma adição temporária e serão removidos assim que os itens de cura adequados forem adicionados.</li>
+    <li>Atalhos de teclado! Agora você pode remapear chaves. Para editar os atalhos de teclado, clique no ícone de engrenagem no canto inferior direito ou, no jogo, pressione Escape e clique em Configurações. Em seguida, clique na guia Atalhos de teclado.</li>
 </ul>
 
 <h3>Bug fixes</h3>
 <ul>
-  <li>Fixed a visual bug causing players' fists to get stuck in the punching position.</li>
+  <li>Corrigido um bug visual que fazia com que os punhos dos jogadores ficassem presos na posição de soco.</li>
 </ul>`
     },
     {
         date: 1684625426000,
         author: "hasanger",
-        title: "We're back, baby",
+        title: "Estamos de volta, amor",
         bannerImage: "../img/news/v0.1.0.png",
-        content: `Kongregate may have shut down Surviv Reloaded, but that's not gonna stop me! Today, I'm releasing the first ever beta version of Suroi, an open-source 2D battle royale game inspired by surviv.io.
-To report a bug or suggest something, <a href="https://discord.suroi.io" target="_blank" rel="noopener noreferrer">join the Discord server</a>. If you have any questions, check out the FAQ on <a href="https://suroi.io/news" target="_blank" rel="noopener noreferrer">the news page</a>.`,
+        content: `Kongregate pode ter fechado o Surviv Reloaded, mas isso não vai me impedir! Hoje, estou lançando a primeira versão beta de Zyan, um jogo Battle Royale 2D de código aberto inspirado em pubg e fortnite.
+Para relatar um bug ou sugerir algo, <a href="https://discord.com/channels/774365668778311680/774365668778311689" target="_blank" rel="noopener noreferrer">entre no servidor Discord</a>. Se você tiver alguma dúvida, confira o FAQ em <a href="https://zyanroyale.com/news" target="_blank" rel="noopener noreferrer">a página de notícias</a>.`,
         longContent: `<h2>FAQ</h2>
-<h3>What is Suroi?</h3>
-<p>Suroi is a new open-source 2D battle royale game inspired by surviv.io. After Surviv Reloaded, my first surviv.io revival project, got DMCA'd by Kongregate, the Surviv Reloaded team started work on a new game, Suroi. Suroi is similar to surviv, but it's built from the ground up with 100% original assets and code.</p>
+<h3>O que é Zyan Royale?</h3>
+<p>Zyan é um novo jogo Battle Royale 2D de código aberto inspirado em surviv.io. Depois que Surviv Reloaded, meu primeiro projeto de revival do surviv.io, recebeu DMCA da Kongregate, a equipe do Surviv Reloaded começou a trabalhar em um novo jogo, Zyan. Zyan é semelhante ao pubg e fornite, mas foi construído do zero com recursos e código 100% originais.</p>
 
-<h3>Why isn't [feature] in the game yet? When will [feature] be added?</h3>
-<p>The initial beta version of Suroi is very basic. Essential features like guns, loot, and buildings will be added in the next few weeks. For more information, check out the #roadmap channel on the Discord.</p>
+<h3>Por que o [recurso] ainda não está no jogo? Quando o [recurso] será adicionado?</h3>
+<p>A versão beta inicial do Zyan é muito básica. Recursos essenciais como armas, saques e edifícios serão adicionados nas próximas semanas. Para mais informações, confira o canal #roadmap no Discord.</p>
 
-<h3>I can't move.</h3>
-<p>As the game is in early beta, we haven't added mobile controls yet. If you're on a mobile device, like a phone or tablet, there's no way to move yet.</p>
+<h3>Eu não consigo me mover.</h3>
+<p>Como o jogo está na versão beta inicial, ainda não adicionamos controles móveis. Se você estiver em um dispositivo móvel, como um telefone ou tablet, ainda não há como se mover.</p>
 
-<h3>My game is laggy.</h3>
-<p>The server is hosted in the United States. If you live far away from the US or you have slow Internet, lag is to be expected. In the future, servers will be hosted in other countries.</p>
+<h3>Meu jogo está lento.</h3>
+<p>O servidor está hospedado nos Estados Unidos. Se você mora longe dos EUA ou tem Internet lenta, é esperado atraso. No futuro, os servidores serão hospedados em outros países.</p>
 
-<h3>I found a bug.</h3>
-<p>To report a bug or suggest a feature, join the Discord. Post bugs in the #bugs channel, and suggestions in #suggestions. Before reporting a bug, please check to make sure someone else hasn't reported it already.</p>`
+<h3>Eu encontrei um bug.</h3>
+<p>Para relatar um bug ou sugerir um recurso, entre no Discord. Poste bugs no canal #bugs e sugestões em #suggestions. Antes de relatar um bug, verifique se alguém já não o relatou.</p>`
     }
 ];

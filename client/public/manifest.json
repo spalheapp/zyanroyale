@@ -1,7 +1,7 @@
 {
-  "name": "Suroi - 2D Battle Royale",
-  "short_name": "Suroi",
-  "description": "Open-source 2D battle royale game inspired by surviv.io.",
+  "name": "Zyan - Battle Royale 2D",
+  "short_name": "Zyan",
+  "description": "2D battle royale game",
   "background_color": "#49993e",
   "start_url": ".",
   "display": "fullscreen",
@@ -31,7 +31,7 @@
   ],
   "shortcuts": [
     {
-      "name": "News",
+      "name": "Notícias",
       "url": "/news/"
     }
   ]

@@ -1,8 +1,6 @@
 export const Config = {
     regions: {
         dev: { name: "Mata Mata", address: "146.19.9.234:8000", https: true },
-        sg: { name: "Singapore", address: "suroi15.dafox.box.ca", https: true },
-        na: { name: "North America", address: "na.suroi.io", https: true },
     },
     defaultRegion: "dev",
     mode: "normal"

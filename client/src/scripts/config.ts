@@ -1,6 +1,6 @@
 export const Config = {
     regions: {
-        dev: { name: "Batalha Solo", address: "dev.zyanroyale.online", https: true },
+        dev: { name: "Batalha Solo", address: "zyanroyale.online", https: false },
     },
     defaultRegion: "dev",
     mode: "normal"

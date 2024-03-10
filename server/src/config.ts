@@ -31,6 +31,10 @@ export const Config = {
   movementSpeed: 0.02655,
 
   censorUsernames: true,
+  ssl: {
+    keyFile: "/etc/letsencrypt/live/zyanroyale.online/privkey.pem",
+    certFile: "/etc/letsencrypt/live/zyanroyale.online/fullchain.pem",
+  },
 
   roles: {
     developr: { password: "developr" },

@@ -1,6 +1,6 @@
 export const Config = {
   regions: {
-    dev: { name: "Mata Mata", address: "zyanroyale.online", https: true },
+    dev: { name: "Mata Mata", address: "zyanroyale.online:443", https: true },
   },
   defaultRegion: "dev",
   mode: "normal",

@@ -171,7 +171,7 @@ $(async(): Promise<void> => {
                 let message: string;
                 switch (data.message) {
                     case "rateLimit":
-                        message = "Error joining game.<br>Please try again in a few minutes.";
+                        message = "Erro ao entrar no jogo.<br>Por favor, tente novamente em alguns minutos.";
                         break;
                     case "warning":
                         showWarningModal = true;
@@ -206,7 +206,7 @@ $(async(): Promise<void> => {
                 }
             }
         }).fail(() => {
-            $("#splash-server-message-text").html("Error finding game.<br>Please try again.");
+            $("#splash-server-message-text").html("Erro ao encontrar o jogo.<br>Por favor, tente novamente.");
             $("#splash-server-message").show();
             enablePlayButton();
         });

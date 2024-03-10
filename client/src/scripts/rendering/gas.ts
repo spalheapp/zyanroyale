@@ -63,15 +63,15 @@ export class Gas {
             let gasMessage = "";
             switch (this.state) {
                 case GasState.Waiting: {
-                    gasMessage = `Toxic gas advances in ${formatDate(time)}`;
+                    gasMessage = `Gás tóxico avança em ${formatDate(time)}`;
                     break;
                 }
                 case GasState.Advancing: {
-                    gasMessage = "Toxic gas is advancing! Move to the safe zone";
+                    gasMessage = "O gás tóxico está avançando! Vá para a zona segura";
                     break;
                 }
                 case GasState.Inactive: {
-                    gasMessage = "Waiting for players...";
+                    gasMessage = "Esperando pelos jogadores...";
                     break;
                 }
             }

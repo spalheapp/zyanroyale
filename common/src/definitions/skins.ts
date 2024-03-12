@@ -309,6 +309,12 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
         hideFromLoadout: true
     },
     {
+        idString: "donut",
+        name: "Donut",
+        itemType: ItemType.Skin,
+        hideFromLoadout: true
+    },
+    {
         idString: "stardust",
         name: "Stardust",
         itemType: ItemType.Skin,

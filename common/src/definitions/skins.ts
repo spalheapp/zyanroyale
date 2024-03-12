@@ -40,12 +40,6 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
         roleRequired: "eipi"
     },
     {
-        idString: "123op",
-        name: "123OP",
-        itemType: ItemType.Skin,
-        roleRequired: "123op"
-    },
-    {
         idString: "radians",
         name: "Radians",
         itemType: ItemType.Skin,
@@ -309,12 +303,6 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
         hideFromLoadout: true
     },
     {
-        idString: "donut",
-        name: "Donut",
-        itemType: ItemType.Skin,
-        hideFromLoadout: true
-    },
-    {
         idString: "stardust",
         name: "Stardust",
         itemType: ItemType.Skin,
@@ -333,5 +321,33 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
         grassTint: true,
         hideEquipment: true,
         hideFromLoadout: true
+    },
+
+    {
+        idString: "blueberry_smoothie",
+        name: "Blueberry Smoothie",
+        itemType: ItemType.Skin,
+        hideFromLoadout: true
+    },
+
+    {
+        idString: "fireball",
+        name: "Fireball",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "mariner",
+        name: "Mariner",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "emperor",
+        name: "Emperor",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "donut",
+        name: "Donut",
+        itemType: ItemType.Skin
     }
 ]);

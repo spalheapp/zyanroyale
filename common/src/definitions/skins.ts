@@ -114,7 +114,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "algae",
-        name: "Algae",
+        name: "ZYAN",
         itemType: ItemType.Skin
     },
     {

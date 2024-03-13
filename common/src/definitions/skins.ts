@@ -11,7 +11,7 @@ exports.Skins = new objectDefinitions_1.ObjectDefinitions([
     },
     {
         idString: "leia",
-        name: "Leia",
+        name: "Saori",
         itemType: ItemType.Skin,
         roleRequired: "leia"
     },

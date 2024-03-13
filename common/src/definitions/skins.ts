@@ -17,7 +17,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "leia",
-        name: "Leia",
+        name: "Saori",
         itemType: ItemType.Skin,
         roleRequired: "leia"
     },

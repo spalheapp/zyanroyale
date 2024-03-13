@@ -64,7 +64,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "forest_camo",
-        name: "Thug Faast",
+        name: "ThugFaasT",
         itemType: ItemType.Skin
     },
     {

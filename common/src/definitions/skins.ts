@@ -1,14 +1,8 @@
-import { ItemType, ObjectDefinitions, type ItemDefinition } from "../utils/objectDefinitions";
-
-export interface SkinDefinition extends ItemDefinition {
-    readonly itemType: ItemType.Skin
-    readonly hideFromLoadout?: boolean
-    readonly grassTint?: boolean
-    readonly hideEquipment?: boolean
-    readonly roleRequired?: string
-}
-
-export const Skins = new ObjectDefinitions<SkinDefinition>([
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Skins = void 0;
+const objectDefinitions_1 = require("../utils/objectDefinitions");
+exports.Skins = new objectDefinitions_1.ObjectDefinitions([
     {
         idString: "hasanger",
         name: "Hasanger",
@@ -17,7 +11,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "leia",
-        name: "Saori",
+        name: "Leia",
         itemType: ItemType.Skin,
         roleRequired: "leia"
     },
@@ -59,117 +53,117 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "hazel_jumpsuit",
-        name: "HAZEL Jumpsuit",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "forest_camo",
-        name: "Forest Camo",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "desert_camo",
-        name: "Desert Camo",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "arctic_camo",
-        name: "Arctic Camo",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "bloodlust",
-        name: "Bloodlust",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "tomato_skin",
-        name: "Tomato",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "greenhorn",
-        name: "Greenhorn",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "blue_blood",
-        name: "Blue Blood",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "silver_lining",
-        name: "Silver Lining",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "pot_o_gold",
-        name: "Pot o' Gold",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "gunmetal",
-        name: "Gunmetal",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "algae",
         name: "ZYAN",
         itemType: ItemType.Skin
     },
     {
+        idString: "forest_camo",
+        name: "Biel",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "desert_camo",
+        name: "Guili",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "arctic_camo",
+        name: "JG",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "bloodlust",
+        name: "PH",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "tomato_skin",
+        name: "Lipe",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "greenhorn",
+        name: "Lucy",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "blue_blood",
+        name: "Lian",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "silver_lining",
+        name: "Persson",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "pot_o_gold",
+        name: "Pajitnov",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "gunmetal",
+        name: "Luca",
+        itemType: ItemType.Skin
+    },
+    {
+        idString: "algae",
+        name: "Hung Ming",
+        itemType: ItemType.Skin
+    },
+    {
         idString: "twilight_zone",
-        name: "Twilight Zone",
+        name: "Larry",
         itemType: ItemType.Skin
     },
     {
         idString: "bubblegum",
-        name: "Bubblegum",
+        name: "Satoshi",
         itemType: ItemType.Skin
     },
     {
         idString: "sunrise",
-        name: "Sunrise",
+        name: "Shigeru",
         itemType: ItemType.Skin
     },
     {
         idString: "sunset",
-        name: "Sunset",
+        name: "Min-Liang",
         itemType: ItemType.Skin
     },
     {
         idString: "stratosphere",
-        name: "Stratosphere",
+        name: "Sampo",
         itemType: ItemType.Skin
     },
     {
         idString: "mango",
-        name: "Mango",
+        name: "Aapo",
         itemType: ItemType.Skin
     },
     {
         idString: "snow_cone",
-        name: "Snow Cone",
+        name: "Ash",
         itemType: ItemType.Skin
     },
     {
         idString: "aquatic",
-        name: "Aquatic",
+        name: "Baszucki",
         itemType: ItemType.Skin
     },
     {
         idString: "floral",
-        name: "Floral",
+        name: "777",
         itemType: ItemType.Skin
     },
     {
         idString: "sunny",
-        name: "Sunny",
+        name: "Fannini",
         itemType: ItemType.Skin
     },
     {
         idString: "volcanic",
-        name: "Volcanic",
+        name: "Paul",
         itemType: ItemType.Skin
     },
     {
@@ -179,43 +173,43 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "solar_flare",
-        name: "Solar Flare",
+        name: "ENIAC",
         itemType: ItemType.Skin
     },
     {
         idString: "beacon",
-        name: "Beacon",
+        name: "Plankalkül",
         itemType: ItemType.Skin
     },
     {
         idString: "wave_jumpsuit",
-        name: "Wave Jumpsuit",
+        name: "Linux",
         itemType: ItemType.Skin
     },
     {
         idString: "toadstool",
-        name: "Toadstool",
+        name: "Pucci",
         itemType: ItemType.Skin
     },
     {
         idString: "full_moon",
-        name: "Full Moon",
+        name: "Lua 92",
         itemType: ItemType.Skin
     },
     {
         idString: "basic_outfit",
-        name: "Basic Outfit",
+        name: "Saks",
         itemType: ItemType.Skin,
         hideFromLoadout: true
     },
     {
         idString: "swiss_cheese",
-        name: "Swiss Cheese",
+        name: "Fancy",
         itemType: ItemType.Skin
     },
     {
         idString: "target_practice",
-        name: "Target Practice",
+        name: "Yoda",
         itemType: ItemType.Skin
     },
     {
@@ -321,33 +315,6 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
         grassTint: true,
         hideEquipment: true,
         hideFromLoadout: true
-    },
-
-    {
-        idString: "blueberry_smoothie",
-        name: "Blueberry Smoothie",
-        itemType: ItemType.Skin,
-        hideFromLoadout: true
-    },
-
-    {
-        idString: "fireball",
-        name: "Fireball",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "mariner",
-        name: "Mariner",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "emperor",
-        name: "Emperor",
-        itemType: ItemType.Skin
-    },
-    {
-        idString: "donut",
-        name: "Donut",
-        itemType: ItemType.Skin
     }
 ]);
+//# sourceMappingURL=skins.js.map

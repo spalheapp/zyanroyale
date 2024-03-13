@@ -47,19 +47,19 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "developr",
-        name: "Developr Swag",
+        name: "Developr",
         itemType: ItemType.Skin,
         roleRequired: "developr"
     },
     {
         idString: "designr",
-        name: "Designr Swag",
+        name: "Designr",
         itemType: ItemType.Skin,
         roleRequired: "designr"
     },
     {
         idString: "hazel_jumpsuit",
-        name: "HAZEL Jumpsuit",
+        name: "HAZEL",
         itemType: ItemType.Skin
     },
     {
@@ -99,7 +99,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "silver_lining",
-        name: "Silver Lining",
+        name: "Silver",
         itemType: ItemType.Skin
     },
     {
@@ -119,7 +119,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "twilight_zone",
-        name: "Twilight Zone",
+        name: "Twilight",
         itemType: ItemType.Skin
     },
     {
@@ -199,7 +199,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "full_moon",
-        name: "Full Moon",
+        name: "Lua",
         itemType: ItemType.Skin
     },
     {
@@ -235,7 +235,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "armadillo",
-        name: "Armadillo",
+        name: "Paquinha",
         itemType: ItemType.Skin
     },
     {

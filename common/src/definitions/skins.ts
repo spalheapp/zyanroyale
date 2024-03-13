@@ -342,7 +342,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "emperor",
-        name: "Emperor",
+        name: "Iron man",
         itemType: ItemType.Skin
     },
     {

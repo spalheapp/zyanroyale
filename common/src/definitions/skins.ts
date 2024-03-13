@@ -59,12 +59,12 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "hazel_jumpsuit",
-        name: "HAZEL",
+        name: "Persson",
         itemType: ItemType.Skin
     },
     {
         idString: "forest_camo",
-        name: "Forest Camo",
+        name: "Satoshi",
         itemType: ItemType.Skin
     },
     {
@@ -74,7 +74,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "arctic_camo",
-        name: "Arctic Camo",
+        name: "Aapo",
         itemType: ItemType.Skin
     },
     {
@@ -84,32 +84,32 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "tomato_skin",
-        name: "Tomato",
+        name: "Ash",
         itemType: ItemType.Skin
     },
     {
         idString: "greenhorn",
-        name: "Greenhorn",
+        name: "Paul",
         itemType: ItemType.Skin
     },
     {
         idString: "blue_blood",
-        name: "Blue Blood",
+        name: "ENIAC",
         itemType: ItemType.Skin
     },
     {
         idString: "silver_lining",
-        name: "Silver",
+        name: "Linux",
         itemType: ItemType.Skin
     },
     {
         idString: "pot_o_gold",
-        name: "Pot o' Gold",
+        name: "Pucci",
         itemType: ItemType.Skin
     },
     {
         idString: "gunmetal",
-        name: "Gunmetal",
+        name: "Saks",
         itemType: ItemType.Skin
     },
     {
@@ -119,7 +119,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "twilight_zone",
-        name: "Twilight",
+        name: "Fancy",
         itemType: ItemType.Skin
     },
     {
@@ -144,7 +144,7 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
     },
     {
         idString: "mango",
-        name: "Mango",
+        name: "Yoda",
         itemType: ItemType.Skin
     },
     {

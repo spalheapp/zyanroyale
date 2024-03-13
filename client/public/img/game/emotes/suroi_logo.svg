@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="78.98" height="78.98" viewBox="0 0 78.98 78.98">
-  <defs>
-    <clipPath id="clip-SPRK_default_preset_name_custom_1">
-      <rect width="78.98" height="78.98"/>
-    </clipPath>
-  </defs>
-  <g id="SPRK_default_preset_name_custom_1" data-name="SPRK_default_preset_name_custom – 1" clip-path="url(#clip-SPRK_default_preset_name_custom_1)">
-    <g id="brazil">
-      <circle id="Elipse_1" data-name="Elipse 1" cx="39.49" cy="39.49" r="39.49" fill="#6da544"/>
-      <path id="Caminho_1" data-name="Caminho 1" d="M43.417,25.044,75.7,48.834,43.417,72.625,11.13,48.834Z" transform="translate(-4.333 -9.75)" fill="#ffda44"/>
-      <circle id="Elipse_2" data-name="Elipse 2" cx="13.595" cy="13.595" r="13.595" transform="translate(25.49 25.49)" fill="#f0f0f0"/>
-      <path id="Caminho_2" data-name="Caminho 2" d="M48.539,54.485a22.854,22.854,0,0,0-6.793,1.027,13.591,13.591,0,0,0,24.723,7.621,22.91,22.91,0,0,0-17.93-8.647Zm20.139,3.454a13.6,13.6,0,0,0-25.835-7.97,28.022,28.022,0,0,1,25.835,7.97Z" transform="translate(-16.252 -16.25)" fill="#0052b4"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="84" height="84" viewBox="0 0 84 84">
+  <g id="Grupo_2" data-name="Grupo 2" transform="translate(-972.087 1745.915)">
+    <g id="Grupo_1" data-name="Grupo 1">
+      <g id="g958" transform="translate(1007.747 -1707.576)">
+        <path id="path1805" d="M39.489,0A39.533,39.533,0,0,1,68.932,13.174c.3.334.6.673,1.093,1.26a39.031,39.031,0,0,1,8.953,25.055A39.489,39.489,0,1,1,39.489,0Z" transform="translate(-33.149 -35.827)" fill="#6da544" stroke="#3f701b" stroke-width="5.023"/>
+        <circle id="path1388" cx="38.243" cy="38.243" r="38.243" transform="translate(-31.903 -34.582)" fill="none" stroke="#6da544" stroke-linejoin="round" stroke-width="4.018"/>
+      </g>
+      <g id="brazil" transform="translate(872 -1742.998)">
+        <path id="Caminho_4" data-name="Caminho 4" d="M43.417,25.044,75.7,48.834,43.417,72.625,11.13,48.834Z" transform="translate(97.669 -9.75)" fill="#ffda44" stroke="#6da544" stroke-width="1"/>
+        <circle id="Elipse_2" data-name="Elipse 2" cx="13.595" cy="13.595" r="13.595" transform="translate(127.49 25.49)" fill="#f0f0f0" stroke="#6da544" stroke-width="1"/>
+        <path id="Caminho_2" data-name="Caminho 2" d="M48.539,54.485a22.854,22.854,0,0,0-6.793,1.027,13.591,13.591,0,0,0,24.723,7.621,22.91,22.91,0,0,0-17.93-8.647Zm20.139,3.454a13.6,13.6,0,0,0-25.835-7.97,28.022,28.022,0,0,1,25.835,7.97Z" transform="translate(85.748 -16.25)" fill="#0052b4" stroke="#6da544" stroke-width="1"/>
+      </g>
     </g>
   </g>
 </svg>

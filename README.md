@@ -15,14 +15,9 @@
   <img src="https://img.shields.io/badge/vite-%235468FF.svg?style=for-the-badge&logo=vite&logoColor=white">
 </div>
 
-## About
-Suroi is an open-source 2D battle royale game inspired by [surviv.io](https://survivio.fandom.com/wiki/Surviv.io_Wiki). It is currently a work in progress.
-
 ## Play the game!
-[suroi.io](https://suroi.io)
+[suroi.io](https://zyanroyale.online)
 
-## Join the Discord!
-[discord.suroi.io](https://discord.suroi.io)
 
 ## Installation and setup
 Start by installing [Node.js](https://nodejs.org) and [pnpm](https://pnpm.io).
@@ -60,5 +55,3 @@ pnpm start
 
 Production builds are served using [NGINX](https://nginx.org). A sample configuration file can be found [here](nginx.conf).
 
-## Self-hosting
-Visit [the wiki](https://github.com/HasangerGames/suroi/wiki/Self%E2%80%90hosting) for details on how to self-host.

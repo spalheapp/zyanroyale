@@ -8,28 +8,28 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
 
-    <meta name="title" content="Zyan - Battle royale game" />
+    <meta name="title" content="Suroi - 2D battle royale game" />
     <meta
       name="description"
-      content="Zyan é um jogo de navegador 2D em multiplayer online do gênero Battle Royale."
+      content="Miss surviv.io and Surviv Reloaded? Suroi is an open-source 2D battle royale game inspired by surviv.io. Work in progress."
     />
     <meta
       name="keywords"
-      content="battle royale, io game, zyan game, zyan royale, zyan battle royale"
+      content="battle royale, io game, browser game, open source"
     />
 
-    <meta property="og:title" content="Zyan - Battle royale game 2D" />
+    <meta property="og:title" content="Suroi - 2D battle royale game" />
     <meta
       property="og:description"
-      content="Zyan é um jogo de navegador 2D em multiplayer online do gênero Battle Royale."
+      content="Miss surviv.io and Surviv Reloaded? Suroi is an open-source 2D battle royale game inspired by surviv.io. Work in progress."
     />
     <meta property="og:site_name" content="suroi.io" />
     <meta
       property="og:image"
-      content="./img/backgrounds/embed_background.png"
+      content="https://suroi.io/img/backgrounds/embed_background.png"
     />
 
-    <title>Zyan - Battle royale</title>
+    <title>Suroi - 2D battle royale game</title>
 
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <link
@@ -61,7 +61,7 @@
     <link rel="manifest" href="./manifest.json" />
     <style>
       body {
-        background-color: #43CF47;
+        background-color: #49993e;
       }
       body > :not(#loading-logo) {
         opacity: 0;
@@ -94,7 +94,7 @@
   </head>
 
   <body>
-    <img id="loading-logo" src="./public/img/logos/loading.png" />
+    <img id="loading-logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:svg='http://www.w3.org/2000/svg' viewBox='-26 -28 512 512' version='1.1' id='svg940' width='512' height='512'%3E%3Cdefs id='defs928'%3E%3CclipPath id='b'%3E%3Ccircle cy='-15' r='9.5' id='circle900' cx='0'/%3E%3Ccircle cy='-15' r='9.5' transform='rotate(120)' id='circle902' cx='0'/%3E%3Ccircle cy='-15' r='9.5' transform='rotate(-120)' id='circle904' cx='0'/%3E%3C/clipPath%3E%3Cmask id='a' width='60' height='60' x='-30' y='-30' maskUnits='userSpaceOnUse'%3E%3Cpath fill='%23ffffff' d='M -27,-27 H 27 V 27 H -27 Z' id='path907'/%3E%3Cpath d='m 2,-23 v -4 h -4 v 4 m 1.5,17 v 4 h 1 v -4' id='path909'/%3E%3Ccircle cy='-15' r='10.5' id='circle911' cx='0'/%3E%3Cg transform='rotate(120)' id='g917'%3E%3Cpath d='m 2,-23 v -4 h -4 v 4 m 1.5,17 v 4 h 1 v -4' id='path913'/%3E%3Ccircle cy='-15' r='10.5' id='circle915' cx='0'/%3E%3C/g%3E%3Cg transform='rotate(-120)' id='g923'%3E%3Cpath d='m 2,-23 v -4 h -4 v 4 m 1.5,17 v 4 h 1 v -4' id='path919'/%3E%3Ccircle cy='-15' r='10.5' id='circle921' cx='0'/%3E%3C/g%3E%3Ccircle r='3' id='circle925' cx='0' cy='0'/%3E%3C/mask%3E%3C/defs%3E%3Cg id='g958' transform='matrix(8.163575,0,0,8.163575,191.35518,205.68233)'%3E%3Ccircle style='fill:%23000000;fill-opacity:1;stroke:%23008af0;stroke-width:3.75;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1' id='path1805' cx='4.7338104' cy='2.7338104' r='29.48381'/%3E%3Ccircle style='fill:none;fill-opacity:1;stroke:%23ff7500;stroke-width:3;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1' id='path1388' cx='4.7338099' cy='2.7338099' r='28.553837'/%3E%3Cg id='g2312' transform='matrix(0.95833334,0,0,0.95833334,0.90047659,-1.8798139)'%3E%3Cg mask='url(%23a)' id='g936' style='fill:%23ff7500;fill-opacity:1;stroke:none;stroke-opacity:1' transform='matrix(0.97854222,0,0,0.97853768,4,4.6909786)'%3E%3Ccircle cy='-11' r='15' id='circle930' style='fill:%23ff7500;fill-opacity:1;stroke:none;stroke-opacity:1' cx='0'/%3E%3Ccircle cy='-11' r='15' transform='rotate(120)' id='circle932' style='fill:%23ff7500;fill-opacity:1;stroke:none;stroke-opacity:1' cx='0'/%3E%3Ccircle cy='-11' r='15' transform='rotate(-120)' id='circle934' style='fill:%23ff7500;fill-opacity:1;stroke:none;stroke-opacity:1' cx='0'/%3E%3C/g%3E%3Ccircle r='11.75' fill='none' stroke='%23000' stroke-width='3.5' clip-path='url(%23b)' id='circle938' style='stroke:%23008aff;stroke-opacity:1' cx='0' cy='0' transform='matrix(0.97854222,0,0,0.97853768,4,4.6909786)'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
     <div id="console" style="display: none">
         <div id="console-container">
           <div id="console-header">
@@ -119,7 +119,7 @@
           <h2>
             <a href="./news/">
               <i class="fa-solid fa-newspaper"></i>
-              Notícias
+              News
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           </h2>
@@ -130,8 +130,8 @@
             <span id="splash-server-message-text"></span>
           </div>
           <div id="splash-rotate-message" style="display: none">
-            <i class="fa-solid fa-rotate"></i> Para uma melhor experiência, por favor
-            gire seu dispositivo para paisagem.
+            <i class="fa-solid fa-rotate"></i> For a better experience, please
+            rotate your device to landscape.
           </div>
           <div id="splash-options">
             <input
@@ -167,7 +167,7 @@
             >
               <span style="position: relative; bottom: 1px"
                 ><div class="spin"></div>
-                Carregando...</span
+                Loading...</span
               >
             </button>
             <!-- <button class="btn btn-lg btn-darken btn-primary" id="btn-play-duo">Play Duo</button> -->
@@ -186,33 +186,21 @@
               style="display: none"
             >
               <div class="pulsating-circle" style="display: none"></div>
-              <span>Regras &amp; Tutorial</span>
+              <span>Rules &amp; Tutorial</span>
             </button>
           </div>
           <div id="splash-socials">
             <a
-              href="https://discord.com/channels/774365668778311680/774365668778311689"
+              href="https://discord.gg/cMdHvUtqdq"
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn-darken btn-social btn-discord"
             ></a>
             <a
-            href="https://instagram.com/zyanroyale"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-darken btn-social btn-instagram"
-          >
-            <a
-              href="https://twitter.com/zyangame2d"
+              href="https://github.com/Compositr/suroi15"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-darken btn-social btn-twitter"
-            ></a>
-            <a
-              href="https://www.youtube.com/@zyangame2d"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-darken btn-social btn-youtube"
+              class="btn btn-darken btn-social btn-github"
             ></a>
           </div>
         </div>
@@ -228,15 +216,49 @@
               id="btn-customize"
             >
               <i class="fa-solid fa-shirt"></i>
-              Perfil
+              Loadout
             </button>
             <button
               class="btn btn-lg btn-darken btn-secondary"
               id="btn-settings"
             >
               <i class="fa-solid fa-gear"></i>
-              Configurações
+              Settings
             </button>
+          </div>
+        </div>
+        <div id="splash-featured-people">
+          <div class="featured-container">
+            <p class="featured-heading">Featured YouTubr</p>
+            <a
+              class="featured-content"
+              id="youtube-featured-content"
+              href=""
+              target="_blank"
+            >
+              <img
+                class="featured-logo"
+                src="./img/misc/youtube-icon.svg"
+                alt="YouTube icon"
+              />
+              <span class="featured-name" id="youtube-featured-name"></span>
+            </a>
+          </div>
+          <div class="featured-container">
+            <p class="featured-heading">Featured Streamr</p>
+            <a
+              class="featured-content"
+              id="twitch-featured-content"
+              target="_blank"
+              href=""
+            >
+              <img
+                class="featured-logo"
+                src="./img/misc/twitch-icon.svg"
+                alt="Twitch icon"
+              />
+              <span class="featured-name" id="twitch-featured-name"></span>
+            </a>
           </div>
         </div>
         <!--<div id="splash-more" class="dropdown">
@@ -245,7 +267,7 @@
             <i class="fa-solid fa-caret-down"></i>
           </button>
           <div class="dropdown-content">
-            <a href="https://wiki.zyanroyale.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://wiki.suroi.io" target="_blank" rel="noopener noreferrer">
               Wiki
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
@@ -343,7 +365,7 @@
         <div class="ui-leaderboard">
           <div id="ui-kill-leader">
             <div id="kill-leader-leader-container">
-              <span id="kill-leader-leader">Esperando pelo líder</span>
+              <span id="kill-leader-leader">Waiting for leader</span>
               <i
                 class="fa-solid fa-crown"
                 style="margin-left: 5px; margin-right: 5px"
@@ -408,7 +430,7 @@
             <span id="health-bar-max"></span>
           </div>
           <div id="killstreak-indicator-container" style="display: none">
-            <span id="killstreak-indicator-counter">Mortes: 0</span>
+            <span id="killstreak-indicator-counter">Streak: 0</span>
           </div>
         </div>
 
@@ -416,14 +438,14 @@
           <div class="inventory-container" id="scopes-container"></div>
           <div id="spectating-container" style="display: none">
             <div id="spectating-msg">
-              Olhando o jogador <span id="spectating-msg-player"></span>
+              Spectating <span id="spectating-msg-player"></span>
             </div>
             <div id="spectating-buttons-container">
               <button id="btn-spectate-previous" class="btn btn-lg btn-primary">
                 <i class="fa-solid fa-arrow-left"></i>
               </button>
               <button id="btn-report" class="btn btn-lg btn-danger">
-                Ajuda
+                Report
               </button>
               <button id="btn-spectate-next" class="btn btn-lg btn-primary">
                 <i class="fa-solid fa-arrow-right"></i>
@@ -432,13 +454,13 @@
                 id="btn-spectate-kill-leader"
                 class="btn btn-lg btn-secondary"
               >
-                Olhar o líder
+                Spectate Kill Leader
               </button>
               <button id="btn-spectate-replay" class="btn btn-lg btn-primary">
-                Jogar de novo
+                Play Again
               </button>
               <button id="btn-spectate-menu" class="btn btn-lg btn-secondary">
-                Principal
+                Menu
               </button>
             </div>
           </div>
@@ -449,7 +471,7 @@
 
         <div id="kill-msg" style="display: none">
           <div id="kill-msg-kills"></div>
-          Você matou <span id="kill-msg-player-name"></span
+          You killed <span id="kill-msg-player-name"></span
           ><span id="kill-msg-weapon-used"></span>
         </div>
         <div class="items-container" id="healing">
@@ -511,29 +533,29 @@
         <div id="game-over-overlay" style="display: none">
           <div id="game-over-top-screen">
             <img id="chicken-dinner" src="./img/game/emotes/chicken.svg" />
-            <h1 id="game-over-text" class="modal-item">Você morreu.</h1>
+            <h1 id="game-over-text" class="modal-item">You died.</h1>
             <div id="game-over-rank-container">
-              <span>Classificação</span>
+              <span>Rank</span>
               <span id="game-over-rank" class="modal-item"></span>
             </div>
           </div>
           <div id="game-over-screen">
-            <h1 id="game-over-player-name" class="modal-item">Jogador</h1>
+            <h1 id="game-over-player-name" class="modal-item">Player</h1>
             <div class="modal-item" id="game-over-stats">
               <div class="stat">
-                <span class="stat-name">Matou:</span>
+                <span class="stat-name">Kills:</span>
                 <span class="stat-value" id="game-over-kills"></span>
               </div>
               <div class="stat">
-                <span class="stat-name">Danos causados:</span>
+                <span class="stat-name">Damage done:</span>
                 <span class="stat-value" id="game-over-damage-done"></span>
               </div>
               <div class="stat">
-                <span class="stat-name">Dano recebido:</span>
+                <span class="stat-name">Damage taken:</span>
                 <span class="stat-value" id="game-over-damage-taken"></span>
               </div>
               <div class="stat">
-                <span class="stat-name">Tempo vivo:</span>
+                <span class="stat-name">Time alive:</span>
                 <span class="stat-value" id="game-over-time"></span>
               </div>
             </div>
@@ -542,20 +564,20 @@
                 class="btn btn-lg btn-darken btn-primary"
                 id="btn-play-again"
               >
-                Jogar de novo
+                Play Again
               </button>
               <div style="display: flex; gap: 8px">
                 <button
                   class="btn btn-lg btn-darken btn-primary"
                   id="btn-spectate"
                 >
-                Olhar
+                  Spectate
                 </button>
                 <button
                   class="btn btn-lg btn-darken btn-secondary"
                   id="btn-menu"
                 >
-                  Principal
+                  Menu
                 </button>
               </div>
             </div>
@@ -567,39 +589,39 @@
   <div class="modal" id="game-menu" style="display: none">
     <div class="modal-item">
       <button class="btn btn-lg btn-darken btn-secondary" id="btn-settings-game"><i class="fa-solid fa-gear"></i>
-        Configurações</button>
+        Settings</button>
     </div>
     <div class="modal-item">
       <button class="btn btn-lg btn-darken btn-secondary" id="btn-fullscreen"><i class="fa-solid fa-expand"></i>
-        Tela cheia</button>
+        Fullscreen</button>
     </div>
     <div class="modal-item">
       <button class="btn btn-lg btn-darken btn-primary" id="btn-resume-game"><i class="fa-solid fa-play"></i>
-        Continuar</button>
+        Resume</button>
     </div>
     <div class="modal-item">
       <button class="btn btn-lg btn-darken btn-danger" id="btn-quit-game"><i
-          class="fa-solid fa-arrow-right-from-bracket"></i> Sair do jogo</button>
+          class="fa-solid fa-arrow-right-from-bracket"></i> Quit</button>
     </div>
   </div>
   <div class="modal dialog" id="report-modal" style="display: none">
     <div class="dialog-header">
-      <h3><span style="font-weight: 600">Denúnciar</span><span id="reporting-name"></span></h3>
+      <h3><span style="font-weight: 600">Reporting</span><span id="reporting-name"></span></h3>
       <span class="dialog-close-btn fa-solid fa-xmark" id="close-report"></span>
     </div>
     <div id="report-modal-content">
       <div id="report-id-container">
-        <span>Denúnciar ID:</span>
+        <span>Report ID:</span>
         <span id="report-id"></span>
       </div>
-      <p><strong>Por favor siga as instruções abaixo!</strong> Caso contrário, seu relatório será ignorado.</p>
-      <h4>Como enviar um relatório</h4>
+      <p><strong>Please follow the instructions below!</strong> If you don't, your report will be ignored.</p>
+      <h4>How to Submit a Report</h4>
       <ol>
-        <li>Junte-se a <a href="https://discord.com/channels/1077043833621184563/1135288369526607973">Discord server.</a></li>
-        <li>Entrar no <a href="https://discord.com/channels/1077043833621184563/1135288369526607973">#cheater-reports
-          canal.</a></li>
-        <li>Leia as diretrizes do relatório na postagem fixada.</li>
-        <li>Envie seu relatório como uma postagem.</li>
+        <li>Join the <a href="https://discord.suroi.io">Discord server.</a></li>
+        <li>Go to the <a href="https://discord.com/channels/1077043833621184563/1135288369526607973">#cheater-reports
+            channel.</a></li>
+        <li>Read the report guidelines in the pinned post.</li>
+        <li>Submit your report as a post.</li>
       </ol>
     </div>
   </div>
@@ -610,7 +632,7 @@
       <div id="warning-modal-agree-options" style="display: none">
         <br>
         <input type="checkbox" class="regular-checkbox" id="warning-modal-agree-checkbox">
-        <label for="warning-modal-agree-checkbox">Eu concordo em não formar equipe</label>
+        <label for="warning-modal-agree-checkbox">I agree not to team</label>
         <br><br>
         <button class="btn btn-lg btn-darken btn-primary btn-disabled" id="warning-btn-play-solo" style="width: 100%">Play <strong>Solo</strong></button>
       </div>
@@ -618,48 +640,48 @@
   </div>
   <div class="modal dialog" id="settings-menu" style="display: none">
     <div class="dialog-header">
-      <h3>Configurações</h3>
+      <h3>Settings</h3>
       <span class="dialog-close-btn fa-solid fa-xmark" id="close-settings"></span>
     </div>
     <div id="settings-tabs-container">
       <div class="tab-bar" id="settings-tab-bar">
         <button class="tab active" id="tab-volume"><i class="fa-solid fa-volume-high"></i>Volume</button>
-        <button class="tab" id="tab-keybinds"><i class="fa-solid fa-keyboard"></i>Atalhos</button>
-        <button class="tab" id="tab-graphics"><i class="fa-solid fa-display"></i>Gráficos</button>
+        <button class="tab" id="tab-keybinds"><i class="fa-solid fa-keyboard"></i>Keybinds</button>
+        <button class="tab" id="tab-graphics"><i class="fa-solid fa-display"></i>Graphics</button>
         <button class="tab" id="tab-interface"><i class="fa-solid fa-list"></i>Interface</button>
-        <button class="tab" id="tab-import-export"><i class="fa-solid fa-file-export"></i>Outros</button>
-        <button class="tab" id="tab-mobile"><i class="fa-solid fa-mobile"></i>Celular</button>
+        <button class="tab" id="tab-import-export"><i class="fa-solid fa-file-export"></i>Save/Load</button>
+        <button class="tab" id="tab-mobile"><i class="fa-solid fa-mobile"></i>Mobile</button>
       </div>
       <div id="settings-tabs" class="persistent-scrollbar">
         <div class="tab-content active" id="tab-volume-content">
           <div class="modal-item">
             <label>
-              <span class="setting-title">Volume Principal</span>
+              <span class="setting-title">Master Volume</span>
               <span class="range-input-value"></span>
               <input type="range" max="1" min="0" id="slider-master-volume" step="0.1" value="1">
             </label>
           </div>
           <div class="modal-item">
             <label>
-              <span class="setting-title">Volume do Efeito</span>
+              <span class="setting-title">SFX Volume</span>
               <span class="range-input-value"></span>
               <input type="range" max="1" min="0" id="slider-sfx-volume" step="0.1" value="1">
             </label>
           </div>
           <div class="modal-item">
             <label>
-              <span class="setting-title">Volume da Música</span>
+              <span class="setting-title">Music Volume</span>
               <span class="range-input-value"></span>
               <input type="range" max="1" min="0" id="slider-music-volume" step="0.1" value="1">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Música Antiga<i>*</i></span>
+              <span class="setting-title">Old menu music<i>*</i></span>
               <input type="checkbox" id="toggle-old-music">
             </label>
           </div>
-          <p style="color: red"><i>* Atualize para aplicar</i></p>
+          <p style="color: red"><i>* Requires reload to apply</i></p>
         </div>
         <div class="tab-content" id="tab-keybinds-content" style="display: none">
         </div>
@@ -672,103 +694,103 @@
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Suavização de movimento</span>
+              <span class="setting-title">Movement smoothing</span>
               <input type="checkbox" id="toggle-movement-smoothing">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Rotação responsiva</span>
+              <span class="setting-title">Responsive rotation</span>
               <input type="checkbox" id="toggle-responsive-rotation">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Vibração da câmera</span>
+              <span class="setting-title">Camera shake</span>
               <input type="checkbox" id="toggle-camera-shake">
             </label>
           </div>
-          <p style="color: red"><i>* Atualize para aplicar</i></p>
+          <p style="color: red"><i>* Requires reload to apply</i></p>
         </div>
         <div class="tab-content" id="tab-interface-content" style="display: none">
           <div class="modal-item" id="ui-scale-container">
             <label>
-              <span class="setting-title">Escala de Interface</span>
+              <span class="setting-title">Interface Scale</span>
               <span class="range-input-value"></span>
               <input type="range" max="2" min="0.1" id="slider-ui-scale" step="0.05">
             </label>
           </div>
           <div class="modal-item">
             <label>
-              <span class="setting-title">Transparência do Minimapa</span>
+              <span class="setting-title">Minimap Transparency</span>
               <span class="range-input-value"></span>
               <input type="range" max="1" min="0.1" id="slider-minimap-transparency" step="0.1">
             </label>
           </div>
           <div class="modal-item">
             <label>
-              <span class="setting-title">Transparência do mapa em tela cheia</span>
+              <span class="setting-title">Fullscreen Map Transparency</span>
               <span class="range-input-value"></span>
               <input type="range" max="1" min="0.1" id="slider-big-map-transparency" step="0.1">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Ocultar minimapa</span>
+              <span class="setting-title">Hide minimap</span>
               <input type="checkbox" id="toggle-hide-minimap">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Botão Ocultar regras</span>
+              <span class="setting-title">Hide rules button</span>
               <input type="checkbox" id="toggle-hide-rules">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Avise antes de sair</span>
+              <span class="setting-title">Warn before leaving</span>
               <input type="checkbox" id="toggle-leave-warning">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Mostrar FPS</span>
+              <span class="setting-title">Show FPS</span>
               <input type="checkbox" id="toggle-fps">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Mostrar ping</span>
+              <span class="setting-title">Show ping</span>
               <input type="checkbox" id="toggle-ping">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Mostrar coordenadas</span>
+              <span class="setting-title">Show coordinates</span>
               <input type="checkbox" id="toggle-coordinates">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Nomes de jogadores anônimos</span>
+              <span class="setting-title">Anonymous player names</span>
               <input type="checkbox" id="toggle-anonymous-player">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Killfeed baseado em texto</span>
+              <span class="setting-title">Text-based killfeed</span>
               <input type="checkbox" id="toggle-text-kill-feed">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Slots de armas coloridas</span>
+              <span class="setting-title">Colored weapon slots</span>
               <input type="checkbox" id="toggle-colored-slots">
             </label>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Seleção de escopo de loop</span>
+              <span class="setting-title">Loop scope selection</span>
               <input type="checkbox" id="toggle-scope-looping">
             </label>
           </div>
@@ -777,44 +799,44 @@
           <div class="modal-item">
             <button class="btn btn-darken btn-lg btn-secondary" id="import-settings-btn">
               <i class="fa-solid fa-file-import"></i>
-              Carregar configurações
+              Load settings
             </button>
           </div>
           <div class="modal-item">
             <button class="btn btn-darken btn-lg btn-secondary" id="export-settings-btn">
               <i class="fa-solid fa-file-export"></i>
-              Copiar configurações
+              Copy settings to clipboard
             </button>
           </div>
           <div class="modal-item">
             <button class="btn btn-darken btn-lg btn-danger" id="reset-settings-btn">
               <i class="fa-solid fa-trash"></i>
-              Redefinir as configurações
+              Reset settings
             </button>
           </div>
         </div>
         <div class="tab-content" id="tab-mobile-content" style="display: none">
-          <i>Alterar essas configurações atualize a página</i>
+          <i>Changing these settings requires reloading the page</i>
           <div class="modal-item">
             <button style="margin-bottom: 10px;" class="btn btn-lg btn-darken btn-secondary"
-              onclick="location.reload()"><i class="fa-solid fa-rotate-right"></i> Recarregar</button>
+              onclick="location.reload()"><i class="fa-solid fa-rotate-right"></i> Reload</button>
           </div>
           <div class="modal-item checkbox-setting">
             <label>
-              <span class="setting-title">Habilitar controles móveis</span>
+              <span class="setting-title">Enable Mobile Controls</span>
               <input type="checkbox" id="toggle-mobile-controls">
             </label>
           </div>
           <div class="modal-item">
             <label>
-              <span class="setting-title">Tamanho do joysticke</span>
+              <span class="setting-title">Joystick size</span>
               <span class="range-input-value"></span>
               <input type="range" max="400" min="25" id="slider-joystick-size" step="25">
             </label>
           </div>
           <div class="modal-item">
             <label>
-              <span class="setting-title">Transparência do joystick</span>
+              <span class="setting-title">Joystick transparency</span>
               <span class="range-input-value"></span>
               <input type="range" max="1" min="0.1" id="slider-joystick-transparency" step="0.1">
             </label>
@@ -825,15 +847,15 @@
   </div>
   <div class="modal dialog persistent-scrollbar" id="customize-menu" style="display: none">
     <div class="dialog-header">
-      <h3>Inventário</h3>
+      <h3>Loadout</h3>
       <span class="dialog-close-btn fa-solid fa-xmark" id="close-customize"></span>
     </div>
     <div id="customize-tabs-container">
       <div class="tab-bar" id="customize-tab-bar">
         <button class="tab active" id="tab-skins"><i class="fa-solid fa-shirt"></i>Skins</button>
-        <button class="tab" id="tab-emotes"><img src="./img/misc/emotes_icon.svg">Emojis</button>
-        <button class="tab" id="tab-crosshairs"><img src="./img/misc/crosshair_icon.svg">Mira</button>
-        <button class="tab" id="tab-badges" style="display: none"><i class="fa-solid fa-certificate"></i>Crachá</button>
+        <button class="tab" id="tab-emotes"><img src="./img/misc/emotes_icon.svg">Emotes</button>
+        <button class="tab" id="tab-crosshairs"><img src="./img/misc/crosshair_icon.svg">Crosshairs</button>
+        <button class="tab" id="tab-badges" style="display: none"><i class="fa-solid fa-certificate"></i>Badges</button>
       </div>
       <div id="customize-tabs">
         <div class="tab-content active" id="tab-skins-content">
@@ -863,7 +885,7 @@
               <span id="crosshair-controls-disabled" style="display: none">System default</span>
               <div class="modal-item">
                 <label>
-                  <span class="setting-title">Tamanho:</span>
+                  <span class="setting-title">Size:</span>
                   <span class="range-input-value"></span>
                   <input type="range" max="5" min="0.5" id="slider-crosshair-size" step="0.1">
                 </label>
@@ -876,14 +898,14 @@
               </div>
               <div class="modal-item">
                 <label>
-                  <span class="setting-title">Tamanho do traço:</span>
+                  <span class="setting-title">Stroke Size:</span>
                   <span class="range-input-value"></span>
                   <input type="range" max="0.2" min="0" id="slider-crosshair-stroke-size" step="0.005">
                 </label>
               </div>
               <div class="modal-item">
                 <label>
-                  <span class="setting-title">Cor do traçor:</span>
+                  <span class="setting-title">Stroke Color:</span>
                   <input type="color" id="crosshair-stroke-picker" value="#000000">
                 </label>
               </div>

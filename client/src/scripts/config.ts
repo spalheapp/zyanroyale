@@ -3,18 +3,15 @@ export const Config = {
     dev: { name: "Mata Mata", address: "zyanroyale.online:443", https: true },
   },
   defaultRegion: "dev",
-  mode: "normal",
+    mode: "desert"
 } satisfies ConfigType as ConfigType;
 
 export interface ConfigType {
-  readonly regions: Record<
-    string,
-    {
-      readonly name: string;
-      readonly address: string;
-      readonly https: boolean;
-    }
-  >;
-  readonly defaultRegion: string;
-  readonly mode: string;
+    readonly regions: Record<string, {
+        readonly name: string
+        readonly address: string
+        readonly https: boolean
+    }>
+    readonly defaultRegion: string
+    readonly mode: string
 }

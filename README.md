@@ -22,10 +22,6 @@
 ## Installation and setup
 Start by installing [Node.js](https://nodejs.org) and [pnpm](https://pnpm.io).
 
-Next, [click here to download the repo](https://github.com/HasangerGames/suroi/archive/refs/heads/master.zip), or use the following command to clone it:
-```sh
-git clone https://github.com/HasangerGames/suroi.git
-```
 
 To install dependencies, open a terminal in the project root, and run this command:
 ```sh

@@ -3,7 +3,7 @@ export const Config = {
     dev: { name: "Mata Mata", address: "zyanroyale.online:443", https: true },
   },
   defaultRegion: "dev",
-    mode: "christmas"
+    mode: "easter"
 } satisfies ConfigType as ConfigType;
 
 export interface ConfigType {

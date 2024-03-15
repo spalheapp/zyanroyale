@@ -345,7 +345,7 @@ export class Game {
         $("canvas").addClass("active");
         $("#splash-ui").fadeOut(enablePlayButton);
 
-        $("#kill-leader-leader").html("Esperando pelo líder");
+        $("#kill-leader-leader").html("Waiting for leader");
         $("#kill-leader-kills-counter").text("0");
         $("#btn-spectate-kill-leader").hide();
     }
@@ -359,7 +359,7 @@ export class Game {
         $("#game-menu").hide();
         $("#game-over-overlay").hide();
         $("canvas").removeClass("active");
-        $("#kill-leader-leader").text("Esperando pelo líder");
+        $("#kill-leader-leader").text("Waiting for leader");
         $("#kill-leader-kills-counter").text("0");
         $("#splash-ui").fadeIn();
 

@@ -1,7 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="89" height="89" viewBox="0 0 89 89">
-  <g id="Grupo_3" data-name="Grupo 3" transform="translate(-0.5 -0.5)">
-    <g id="Grupo_1" data-name="Grupo 1" transform="translate(0.751 0.751)">
-      <circle id="path846" cx="43" cy="43" r="43" transform="translate(1.249 1.249)" fill="#fcc875" stroke="#363333" stroke-width="3"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="87" height="87" viewBox="0 0 87 87">
+  <g id="Grupo_4" data-name="Grupo 4" transform="translate(-1.5 -1.5)">
+    <g id="Grupo_3" data-name="Grupo 3" transform="translate(0.693 1)">
+      <g id="Grupo_1" data-name="Grupo 1" transform="translate(2.307 2)">
+        <circle id="path846" cx="42" cy="42" r="42" transform="translate(0)" fill="#fcc875" stroke="#363333" stroke-width="3"/>
+      </g>
     </g>
   </g>
 </svg>

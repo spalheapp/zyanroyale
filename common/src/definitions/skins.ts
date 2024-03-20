@@ -341,6 +341,12 @@ export const Skins = new ObjectDefinitions<SkinDefinition>([
         itemType: ItemType.Skin
     },
     {
+        idString: "astro",
+        name: "Astronautical",
+        itemType: ItemType.Skin,
+        roleRequired: "astro"
+    },
+    {
         idString: "emperor",
         name: "Iron man",
         itemType: ItemType.Skin

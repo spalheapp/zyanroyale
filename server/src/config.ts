@@ -38,7 +38,25 @@ export const Config = {
         { mapName: "cobalt", teamMode: TeamMode.Squad, enabled: true }
     ],
 
-    regions: {},
+{
+    "apiKey": "j0wo7RY0pYgD6W2mEy2wLa7VE4olUPD1r2hZma8FU6o=",
+    "gameServer": {
+        "apiServerUrl": "https://zyanroyale.com"
+    },
+    "regions": {
+        "na": {
+            "https": true,
+            "address": "http://127.0.0.1:8000",
+            "l10n": "index-north-america"
+        },
+        "eu": {
+            "https": true,
+            "address": "http://127.0.0.1:8001",
+            "l10n": "index-europe"
+        }
+    },
+    "thisRegion": "na"
+}
 
     thisRegion: "local",
 

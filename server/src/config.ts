@@ -38,7 +38,7 @@ export const Config = {
         { mapName: "main", teamMode: TeamMode.Squad, enabled: true }
     ],
 
-    regions: {Battle Royale},
+    regions: {},
 
     thisRegion: "local",
 

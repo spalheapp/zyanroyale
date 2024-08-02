@@ -1,19 +1,19 @@
 <!doctype html>
 <html lang='en'>
-  <head>
+<head>
     <!-- Meta Properties -->
     <meta charset='UTF-8'>
     <title>Zyan Royale - 2D battle royale</title>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover, user-scalable=no">
     <meta name="description" content="Like games such as Player Unknown's Battlegrounds (PUBG), Fortnite or Apex Legends? Play this free 2d battle royale io game in your browser!">
-    <meta property="og:description" content="Like games such as Player Unknown's Battlegrounds (PUBG), Fortnite or Apex Legends? Play this free 2d battle royale io game in your browser!">
-    <meta name="keywords" content="zyanroyale, royale, zyan, 2d battle royale, io, battle royale browser game, 2d battlegrounds, battlegrounds, battleroyale, battle, royale, browser game, br, survival, game, web game, multiplayer">
+    <meta property="og:description" content="Like games such as Player Unknown's Battlegrounds (PUBG), Fortnite ou Apex Legends? Play this free 2d battle royale io game in your browser!">
+    <meta name="keywords" content="resurviv, survivio, surviv, 2d battle royale, io, battle royale browser game, 2d battlegrounds, battlegrounds, battleroyale, battle, royale, browser game, br, survival, game, web game, multiplayer">
     <meta property="og:type" content="website">
     <meta property="og:title" content="zyanroyale.com">
     <meta property="og:url" content="https://zyanroyale.com/">
     <meta property="og:site_name" content="zyanroyale.com">
-    <meta content="https://zyanroyale.com/client/public/img/title.png" property="og:image">
-    <link rel="canonical" href="https://zyanroyale.com" />
+    <meta content="https://zyanroyale.com/img/title.png" property="og:image">
+    <link rel="canonical" href="http://zyanroyale.com" />
     <link rel="apple-touch-icon" href="img/apple-touch-icon-180x180.png">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="mask-icon" href="img/maskable-icon-512x512.png" color="#FFFFFF">
@@ -21,7 +21,63 @@
     <!-- Fonts -->
     <link href="css/app.css" rel="stylesheet">
     <link href="css/game.css" rel="stylesheet">
-    </head>
+    
+    <!-- Loading Banner Styles -->
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #loading img {
+            width: 100%; /* Use 50% da largura do viewport */
+            max-width: auto; /* Largura máxima para dispositivos maiores */
+            height: auto;
+        }
+
+        @media (max-width: 600px) {
+            #loading img {
+                width: 70%; /* Use 70% da largura do viewport para dispositivos móveis */
+                max-width: 150px; /* Largura máxima para dispositivos móveis */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <img src="public/img/background.jpg" alt="Loading...">
+    </div>
+    <script>
+      window.addEventListener('load', function() {
+          setTimeout(function() {
+              var loading = document.getElementById('loading');
+              var content = document.getElementById('content');
+              
+              loading.style.display = 'none';
+              content.style.display = 'block';
+          }, 5000); // 5000 milissegundos = 5 segundos
+      });
+  </script>
+</body>
+</html>
   <body>
     <div id='preroll-wrapper'>
       <div id="preroll"></div>

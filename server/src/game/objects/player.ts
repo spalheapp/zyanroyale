@@ -520,7 +520,21 @@ export class Player extends BaseGameObject {
                         ? weaponOrWeaponFunc(this.teamId)
                         : weaponOrWeaponFunc;
 
-                if (!trueWeapon.type) continue; //prevents overwriting existing weapons
+                if (!trueWeapon.type) {
+                    //prevents overwriting existing weapons
+                    if (!this.weapons[i].type) {
+                        continue;
+                    }
+
+                    const curWeapDef = GameObjectDefs[this.weapons[i].type];
+                    if (curWeapDef.type == "gun") {
+                        // refills the ammo of the existing weapon
+                        this.weapons[i].ammo = this.weaponManager.getTrueAmmoStats(
+                            curWeapDef as GunDef
+                        ).trueMaxClip;
+                    }
+                    continue;
+                }
 
                 const gunDef = GameObjectDefs[trueWeapon.type] as GunDef;
                 if (gunDef && gunDef.type == "gun") {
@@ -582,6 +596,8 @@ export class Player extends BaseGameObject {
             this.scale += 0.4;
         } else if (type == "flak_jacket") {
             this.scale += 0.2;
+        } else if (type == "small_arms") {
+            this.scale -= 0.25;
         }
     }
 
@@ -596,6 +612,8 @@ export class Player extends BaseGameObject {
             this.scale -= 0.4;
         } else if (type == "flak_jacket") {
             this.scale -= 0.2;
+        } else if (type == "small_arms") {
+            this.scale += 0.25;
         }
     }
 
@@ -2905,8 +2923,13 @@ export class Player extends BaseGameObject {
             | GunDef
             | MeleeDef
             | ThrowableDef;
-        if (weaponDef.speed.equip && !this.weaponManager.meleeAttacks.length) {
-            this.speed += weaponDef.speed.equip;
+        if (!this.weaponManager.meleeAttacks.length) {
+            let speedBonus = 0;
+            if (this.hasPerk("small_arms") && weaponDef.type == "gun") {
+                speedBonus += 1;
+            }
+
+            this.speed += weaponDef.speed.equip + speedBonus;
         }
 
         const customShootingSpeed =

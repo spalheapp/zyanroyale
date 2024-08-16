@@ -11,21 +11,10 @@ type BasicRoleWeapon = {
  * a role weapon not only needs to be conditionally defined depending on what team the player with the role is,
  * but it also needs to be able to be randomly chosen to satisfy the requirements of certain roles like marksman
  */
-type RoleWeapon = BasicRoleWeapon | ((teamcolor: TeamColor) => BasicRoleWeapon);
-
-function getTeamWeapon(
-    colorToWeaponMap: Record<TeamColor, BasicRoleWeapon>,
-    teamcolor: TeamColor
-): BasicRoleWeapon {
-    return colorToWeaponMap[teamcolor];
-}
-
-function getTeamHelmet(
-    colorToHelmetMap: Record<TeamColor, string>,
-    teamcolor: TeamColor
-) {
-    return colorToHelmetMap[teamcolor];
-}
+type RoleWeapon =
+    | BasicRoleWeapon
+    | Record<TeamColor, BasicRoleWeapon>
+    | (() => BasicRoleWeapon);
 
 type DeepPartial<T> = T extends object
     ? {
@@ -36,7 +25,7 @@ type DeepPartial<T> = T extends object
 type DefaultItems = {
     weapons: [RoleWeapon, RoleWeapon, RoleWeapon, RoleWeapon];
     backpack: string;
-    helmet: string | ((teamcolor: TeamColor) => string);
+    helmet: string | Record<TeamColor, string>;
     chest: string;
     scope: string;
     inventory: {
@@ -105,7 +94,7 @@ function createDefaultItems<T extends DefaultItems>(e: DeepPartial<T>): T {
             { type: "", ammo: 0 },
             { type: "", ammo: 0 },
             { type: "fists", ammo: 0 },
-            { type: "", ammo: 0 }
+            { type: "", ammo: 0 },
         ],
         backpack: "backpack00",
         helmet: "",
@@ -135,8 +124,8 @@ function createDefaultItems<T extends DefaultItems>(e: DeepPartial<T>): T {
             "2xscope": 0,
             "4xscope": 0,
             "8xscope": 0,
-            "15xscope": 0
-        }
+            "15xscope": 0,
+        },
     };
     return util.mergeDeep(defaultItems, e || {});
 }
@@ -148,42 +137,34 @@ export const RoleDefs: Record<string, RoleDef> = {
         killFeed: { assign: true, dead: true },
         sound: {
             assign: "leader_assigned_01",
-            dead: "leader_dead_01"
+            dead: "leader_dead_01",
         },
         mapIcon: {
             alive: "player-star.img",
-            dead: "skull-leader.img"
+            dead: "skull-leader.img",
         },
         perks: ["leadership"],
         defaultItems: createDefaultItems({
             weapons: [
-                (teamcolor: TeamColor) =>
-                    getTeamWeapon(
-                        {
-                            [TeamColor.RED]: { type: "m1014", ammo: 8, fillInv: true },
-                            [TeamColor.BLUE]: { type: "an94", ammo: 45, fillInv: true }
-                        },
-                        teamcolor
-                    ),
+                {
+                    [TeamColor.Red]: { type: "m1014", ammo: 8, fillInv: true },
+                    [TeamColor.Blue]: { type: "an94", ammo: 45, fillInv: true },
+                },
                 { type: "flare_gun", ammo: 1 },
-                (teamcolor: TeamColor) =>
-                    getTeamWeapon(
-                        {
-                            [TeamColor.RED]: { type: "machete_taiga", ammo: 0 },
-                            [TeamColor.BLUE]: { type: "kukri_trad", ammo: 0 }
-                        },
-                        teamcolor
-                    ),
-                { type: "", ammo: 0 }
+                {
+                    [TeamColor.Red]: { type: "machete_taiga", ammo: 0 },
+                    [TeamColor.Blue]: { type: "kukri_trad", ammo: 0 },
+                },
+                { type: "", ammo: 0 },
             ],
             backpack: "backpack03",
             helmet: "helmet04_leader",
             chest: "chest03",
             scope: "8xscope",
             inventory: {
-                "8xscope": 1
-            }
-        })
+                "8xscope": 1,
+            },
+        }),
     },
     lieutenant: {
         type: "role",
@@ -194,25 +175,21 @@ export const RoleDefs: Record<string, RoleDef> = {
         defaultItems: createDefaultItems({
             weapons: [
                 { type: "", ammo: 0 },
-                (teamcolor: TeamColor) =>
-                    getTeamWeapon(
-                        {
-                            [TeamColor.RED]: { type: "m4a1", ammo: 40, fillInv: true },
-                            [TeamColor.BLUE]: { type: "grozas", ammo: 40, fillInv: true }
-                        },
-                        teamcolor
-                    ),
+                {
+                    [TeamColor.Red]: { type: "m4a1", ammo: 40, fillInv: true },
+                    [TeamColor.Blue]: { type: "grozas", ammo: 40, fillInv: true },
+                },
                 { type: "spade_assault", ammo: 0 },
-                { type: "", ammo: 0 }
+                { type: "", ammo: 0 },
             ],
             backpack: "backpack03",
             helmet: "helmet03_lt",
             chest: "chest03",
             scope: "4xscope",
             inventory: {
-                "4xscope": 1
-            }
-        })
+                "4xscope": 1,
+            },
+        }),
     },
     medic: {
         type: "role",
@@ -221,7 +198,7 @@ export const RoleDefs: Record<string, RoleDef> = {
         sound: { assign: "medic_assigned_01" },
         mapIcon: {
             alive: "player-medic.img",
-            dead: "skull-leader.img"
+            dead: "skull-leader.img",
         },
         perks: ["aoe_heal", "self_revive"],
         defaultItems: createDefaultItems({
@@ -229,7 +206,7 @@ export const RoleDefs: Record<string, RoleDef> = {
                 { type: "", ammo: 0 },
                 { type: "", ammo: 0 },
                 { type: "bonesaw_rusted", ammo: 0 },
-                { type: "smoke", ammo: 0 }
+                { type: "smoke", ammo: 0 },
             ],
             backpack: "backpack03",
             helmet: "helmet04_medic",
@@ -240,9 +217,9 @@ export const RoleDefs: Record<string, RoleDef> = {
                 healthkit: 4,
                 painkiller: 4,
                 soda: 15,
-                smoke: 6
-            }
-        })
+                smoke: 6,
+            },
+        }),
     },
     marksman: {
         type: "role",
@@ -253,31 +230,27 @@ export const RoleDefs: Record<string, RoleDef> = {
         defaultItems: createDefaultItems({
             weapons: [
                 { type: "", ammo: 0 },
-                (teamcolor: TeamColor) =>
-                    getTeamWeapon(
-                        {
-                            [TeamColor.RED]: util.weightedRandom([
-                                { type: "l86", ammo: 30, fillInv: true, weight: 0.9 },
-                                { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 }
-                            ]),
-                            [TeamColor.BLUE]: util.weightedRandom([
-                                { type: "svd", ammo: 10, fillInv: true, weight: 0.9 },
-                                { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 }
-                            ])
-                        },
-                        teamcolor
-                    ),
+                {
+                    [TeamColor.Red]: util.weightedRandom([
+                        { type: "l86", ammo: 30, fillInv: true, weight: 0.9 },
+                        { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
+                    ]),
+                    [TeamColor.Blue]: util.weightedRandom([
+                        { type: "svd", ammo: 10, fillInv: true, weight: 0.9 },
+                        { type: "scarssr", ammo: 10, fillInv: true, weight: 0.1 },
+                    ]),
+                },
                 { type: "kukri_sniper", ammo: 0 },
-                { type: "", ammo: 0 }
+                { type: "", ammo: 0 },
             ],
             backpack: "backpack03",
             helmet: "helmet03_marksman",
             chest: "chest03",
             scope: "4xscope",
             inventory: {
-                "4xscope": 1
-            }
-        })
+                "4xscope": 1,
+            },
+        }),
     },
     recon: {
         type: "role",
@@ -290,7 +263,7 @@ export const RoleDefs: Record<string, RoleDef> = {
                 { type: "", ammo: 0 },
                 { type: "glock_dual", ammo: 34, fillInv: true },
                 { type: "crowbar_recon", ammo: 0 },
-                { type: "", ammo: 0 }
+                { type: "", ammo: 0 },
             ],
             backpack: "backpack03",
             helmet: "helmet03_recon",
@@ -298,9 +271,9 @@ export const RoleDefs: Record<string, RoleDef> = {
             scope: "4xscope",
             inventory: {
                 "4xscope": 1,
-                soda: 6
-            }
-        })
+                soda: 6,
+            },
+        }),
     },
     grenadier: {
         type: "role",
@@ -313,7 +286,7 @@ export const RoleDefs: Record<string, RoleDef> = {
                 { type: "", ammo: 0 },
                 { type: "mp220", ammo: 2, fillInv: true },
                 { type: "katana", ammo: 0 },
-                { type: "mirv", ammo: 8 }
+                { type: "mirv", ammo: 8 },
             ],
             backpack: "backpack03",
             helmet: "helmet03_grenadier",
@@ -322,16 +295,16 @@ export const RoleDefs: Record<string, RoleDef> = {
             inventory: {
                 mirv: 8,
                 frag: 12,
-                "4xscope": 1
-            }
-        })
+                "4xscope": 1,
+            },
+        }),
     },
     bugler: {
         type: "role",
         announce: true,
         killFeed: { assign: true },
         sound: { assign: "bugler_assigned_01" },
-        perks: ["inspiration", "final_bugle"]
+        perks: ["inspiration", "final_bugle"],
     },
     last_man: {
         type: "role",
@@ -345,52 +318,39 @@ export const RoleDefs: Record<string, RoleDef> = {
                 util.weightedRandom([
                     { type: "takedown", weight: 1 },
                     { type: "windwalk", weight: 1 },
-                    { type: "field_medic", weight: 1 }
-                ]).type
+                    { type: "field_medic", weight: 1 },
+                ]).type,
         ],
         defaultItems: createDefaultItems({
             weapons: [
                 { type: "", ammo: 0 },
-                (teamcolor: TeamColor) =>
-                    getTeamWeapon(
-                        {
-                            [TeamColor.RED]: util.weightedRandom([
-                                { type: "m249", ammo: 100, fillInv: true, weight: 1 },
-                                { type: "pkp", ammo: 200, fillInv: true, weight: 1 }
-                            ]),
-                            [TeamColor.BLUE]: util.weightedRandom([
-                                { type: "m249", ammo: 100, fillInv: true, weight: 1 },
-                                { type: "pkp", ammo: 200, fillInv: true, weight: 1 }
-                            ])
-                        },
-                        teamcolor
-                    ),
+                () =>
+                    util.weightedRandom([
+                        { type: "m249", ammo: 100, fillInv: true, weight: 1 },
+                        { type: "pkp", ammo: 200, fillInv: true, weight: 1 },
+                    ]),
                 { type: "", ammo: 0 },
-                { type: "mirv", ammo: 8 }
+                { type: "mirv", ammo: 8 },
             ],
             backpack: "backpack03",
-            helmet: (teamcolor: TeamColor) =>
-                getTeamHelmet(
-                    {
-                        [TeamColor.RED]: "helmet04_last_man_red",
-                        [TeamColor.BLUE]: "helmet04_last_man_blue"
-                    },
-                    teamcolor
-                ),
+            helmet: {
+                [TeamColor.Red]: "helmet04_last_man_red",
+                [TeamColor.Blue]: "helmet04_last_man_blue",
+            },
             chest: "chest04",
             scope: "8xscope",
             inventory: {
                 mirv: 8,
-                "8xscope": 1
-            }
-        })
+                "8xscope": 1,
+            },
+        }),
     },
     woods_king: {
         type: "role",
         announce: false,
         killFeed: { dead: true, color: "#12ff00" },
         sound: { dead: "leader_dead_01" },
-        perks: ["gotw", "windwalk"]
+        perks: ["gotw", "windwalk"],
     },
     kill_leader: {
         type: "role",
@@ -398,8 +358,8 @@ export const RoleDefs: Record<string, RoleDef> = {
         killFeed: { assign: true, dead: true, color: "#ff8400" },
         sound: {
             assign: "leader_assigned_01",
-            dead: "leader_dead_01"
-        }
+            dead: "leader_dead_01",
+        },
     },
     the_hunted: {
         type: "role",
@@ -407,15 +367,15 @@ export const RoleDefs: Record<string, RoleDef> = {
         killFeed: { assign: true, dead: true, color: "#ff8400" },
         sound: {
             assign: "leader_assigned_01",
-            dead: "leader_dead_01"
+            dead: "leader_dead_01",
         },
         mapIndicator: {
             sprite: "player-the-hunted.img",
             tint: 16745472,
             pulse: true,
-            pulseTint: 16745472
+            pulseTint: 16745472,
         },
-        perks: ["hunted"]
+        perks: ["hunted"],
     },
     healer: {
         type: "role",
@@ -424,10 +384,10 @@ export const RoleDefs: Record<string, RoleDef> = {
         perks: ["field_medic", "windwalk"],
         visorImg: {
             baseSprite: "player-visor-healer.img",
-            spriteScale: 0.3
+            spriteScale: 0.3,
         },
         guiImg: "img/gui/role-healer.svg",
-        color: 11468975
+        color: 11468975,
     },
     tank: {
         type: "role",
@@ -436,10 +396,10 @@ export const RoleDefs: Record<string, RoleDef> = {
         perks: ["steelskin", "endless_ammo"],
         visorImg: {
             baseSprite: "player-visor-tank.img",
-            spriteScale: 0.3
+            spriteScale: 0.3,
         },
         guiImg: "img/gui/role-tank.svg",
-        color: 13862400
+        color: 13862400,
     },
     sniper: {
         type: "role",
@@ -448,10 +408,10 @@ export const RoleDefs: Record<string, RoleDef> = {
         perks: ["chambered", "takedown"],
         visorImg: {
             baseSprite: "player-visor-sniper.img",
-            spriteScale: 0.3
+            spriteScale: 0.3,
         },
         guiImg: "img/gui/role-sniper.svg",
-        color: 30696
+        color: 30696,
     },
     scout: {
         type: "role",
@@ -460,10 +420,10 @@ export const RoleDefs: Record<string, RoleDef> = {
         perks: ["small_arms", "tree_climbing"],
         visorImg: {
             baseSprite: "player-visor-scout.img",
-            spriteScale: 0.3
+            spriteScale: 0.3,
         },
         guiImg: "img/gui/role-scout.svg",
-        color: 6725632
+        color: 6725632,
     },
     demo: {
         type: "role",
@@ -472,10 +432,10 @@ export const RoleDefs: Record<string, RoleDef> = {
         perks: ["fabricate", "flak_jacket"],
         visorImg: {
             baseSprite: "player-visor-demo.img",
-            spriteScale: 0.3
+            spriteScale: 0.3,
         },
         guiImg: "img/gui/role-demo.svg",
-        color: 6750976
+        color: 6750976,
     },
     assault: {
         type: "role",
@@ -484,9 +444,9 @@ export const RoleDefs: Record<string, RoleDef> = {
         perks: ["firepower", "bonus_assault"],
         visorImg: {
             baseSprite: "player-visor-assault.img",
-            spriteScale: 0.3
+            spriteScale: 0.3,
         },
         guiImg: "img/gui/role-assault.svg",
-        color: 16772119
-    }
+        color: 16772119,
+    },
 };

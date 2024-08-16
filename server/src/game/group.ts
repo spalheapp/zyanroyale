@@ -57,7 +57,9 @@ export class Group {
      * true if all ALIVE teammates besides the passed in player are downed
      */
     checkAllDowned(player: Player) {
-        const filteredPlayers = this.players.filter((p) => p != player && !p.dead);
+        const filteredPlayers = this.players.filter(
+            (p) => p != player && !p.dead && !p.hasPerk("self_revive"),
+        );
         if (filteredPlayers.length == 0) {
             // this is necessary since for some dumb reason every() on an empty array returns true????
             return false;
@@ -92,7 +94,7 @@ export class Group {
             p.kill({
                 damageType: GameConfig.DamageType.Bleeding,
                 dir: p.dir,
-                source: p.downedBy
+                source: p.downedBy,
             });
         }
     }

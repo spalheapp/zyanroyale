@@ -1,6 +1,7 @@
 import type { MapDefs } from "../../../shared/defs/mapDefs";
 import { GameConfig } from "../../../shared/gameConfig";
 import * as net from "../../../shared/net/net";
+import { ObjectType } from "../../../shared/net/objectSerializeFns";
 import { Config, TeamMode } from "../config";
 import type { GameSocketData } from "../gameServer";
 import { Logger } from "../utils/logger";
@@ -12,7 +13,7 @@ import { BulletBarn } from "./objects/bullet";
 import { DeadBodyBarn } from "./objects/deadBody";
 import { DecalBarn } from "./objects/decal";
 import { ExplosionBarn } from "./objects/explosion";
-import { type GameObject, ObjectRegister } from "./objects/gameObject";
+import { type DamageParams, type GameObject, ObjectRegister } from "./objects/gameObject";
 import { Gas } from "./objects/gas";
 import { LootBarn } from "./objects/loot";
 import { PlaneBarn } from "./objects/plane";
@@ -35,7 +36,7 @@ export type GroupData = {
 enum ContextMode {
     Solo,
     Team,
-    Faction
+    Faction,
 }
 
 class ContextManager {
@@ -48,7 +49,7 @@ class ContextManager {
         this._contextMode = [
             game.teamMode == TeamMode.Solo && !game.map.factionMode,
             game.teamMode != TeamMode.Solo && !game.map.factionMode,
-            game.map.factionMode
+            game.map.factionMode,
         ].findIndex((isMode) => isMode);
     }
 
@@ -60,7 +61,7 @@ class ContextManager {
         return this._applyContext<number>({
             [ContextMode.Solo]: () => this._game.playerBarn.livingPlayers.length,
             [ContextMode.Team]: () => this._game.getAliveGroups().length,
-            [ContextMode.Faction]: () => this._game.getAliveTeams().length //tbd
+            [ContextMode.Faction]: () => this._game.getAliveTeams().length, //tbd
         });
     }
 
@@ -88,7 +89,7 @@ class ContextManager {
                     player.addGameOverMsg(winner.teamId);
                 }
                 return true;
-            }
+            },
         });
     }
 
@@ -96,7 +97,7 @@ class ContextManager {
         return this._applyContext<boolean>({
             [ContextMode.Solo]: () => this.aliveCount() > 1,
             [ContextMode.Team]: () => this.aliveCount() > 1,
-            [ContextMode.Faction]: () => this.aliveCount() > 1 //tbd
+            [ContextMode.Faction]: () => this.aliveCount() > 1, //tbd
         });
     }
 
@@ -110,7 +111,7 @@ class ContextManager {
                 for (let i = 0; i < numFactions; i++) {
                     aliveCounts.push(this._game.teams[i].livingPlayers.length);
                 }
-            }
+            },
         });
     }
 
@@ -118,7 +119,16 @@ class ContextManager {
         return this._applyContext<Player[] | undefined>({
             [ContextMode.Solo]: () => undefined,
             [ContextMode.Team]: () => player.group!.players,
-            [ContextMode.Faction]: () => this._game.playerBarn.players
+            [ContextMode.Faction]: () => this._game.playerBarn.players,
+        });
+    }
+
+    /** if the current context mode supports reviving, unrelated to individual players */
+    canRevive(): boolean {
+        return this._applyContext<boolean>({
+            [ContextMode.Solo]: () => false,
+            [ContextMode.Team]: () => true,
+            [ContextMode.Faction]: () => true,
         });
     }
 
@@ -136,7 +146,7 @@ class ContextManager {
                     player.actionType == GameConfig.Action.Revive &&
                     !!player.action.targetId
                 );
-            }
+            },
         });
     }
 
@@ -165,11 +175,11 @@ class ContextManager {
                                 this.isReviving(medic) &&
                                 player.isAffectedByAOE(medic)
                             );
-                        })
+                        }),
                     );
                 }
                 return false;
-            }
+            },
         });
     }
 
@@ -179,13 +189,107 @@ class ContextManager {
             [ContextMode.Team]: () =>
                 !player.group!.allDeadOrDisconnected && this.aliveCount() > 1,
             [ContextMode.Faction]: () => {
+                /**
+                 * temporary fix for when you kill the last non knocked player on a team
+                 * and all of the knocked players are supposed to bleed out
+                 * technically everyone is "dead" at this point and the stats message shouldnt show for anyone
+                 * but since the last knocked player gets killed first the downed teammates are technically still "alive"
+                 *
+                 * i believe the solution is to separate kills and gameovermsgs so that all kills in a tick get done first
+                 * then all gameovermsgs get done after
+                 * for (const kill of kills){};
+                 * for (const msg of gameovermsgs){};
+                 */
+                if (player.team!.checkAllDowned(player)) return false;
+
                 if (!this._game.isTeamMode) {
                     //stats msg can only show in solos if it's also faction mode
                     return this.aliveCount() > 1;
                 }
 
                 return !player.group!.allDeadOrDisconnected && this.aliveCount() > 1;
-            }
+            },
+        });
+    }
+
+    handlePlayerDeath(player: Player, params: DamageParams): void {
+        return this._applyContext<void>({
+            [ContextMode.Solo]: () => player.kill(params),
+            [ContextMode.Team]: () => {
+                const sourceIsPlayer = params.source?.__type === ObjectType.Player;
+                const group = player.group!;
+                if (player.downed) {
+                    const finishedByTeammate =
+                        player.downedBy &&
+                        sourceIsPlayer &&
+                        player.downedBy.groupId === (params.source as Player).groupId;
+
+                    const bledOut =
+                        player.downedBy &&
+                        params.damageType == GameConfig.DamageType.Bleeding;
+
+                    if (finishedByTeammate || bledOut) {
+                        params.source = player.downedBy;
+                    }
+
+                    player.kill(params);
+                    //special case that only happens when the player has self_revive since the teammates wouldnt have previously been finished off
+                    if (group.checkAllDowned(player)) {
+                        group.killAllTeammates();
+                    }
+                    return;
+                }
+
+                const allDeadOrDisconnected = group.checkAllDeadOrDisconnected(player);
+                const allDowned = group.checkAllDowned(player);
+
+                if (allDeadOrDisconnected || allDowned) {
+                    group.allDeadOrDisconnected = true; // must set before any kill() calls so the gameovermsgs are accurate
+                    player.kill(params);
+                    if (allDowned) {
+                        group.killAllTeammates();
+                    }
+                } else {
+                    player.down(params);
+                }
+            },
+            [ContextMode.Faction]: () => {
+                const sourceIsPlayer = params.source?.__type === ObjectType.Player;
+                const team = player.team!;
+                if (player.downed) {
+                    const finishedByTeammate =
+                        player.downedBy &&
+                        sourceIsPlayer &&
+                        player.downedBy.teamId === (params.source as Player).teamId;
+
+                    const bledOut =
+                        player.downedBy &&
+                        params.damageType == GameConfig.DamageType.Bleeding;
+
+                    if (finishedByTeammate || bledOut) {
+                        params.source = player.downedBy;
+                    }
+
+                    player.kill(params);
+                    //special case that only happens when the player has self_revive since the teammates wouldnt have previously been finished off
+                    if (team.checkAllDowned(player)) {
+                        team.killAllTeammates();
+                    }
+                    return;
+                }
+
+                const allDead = team.checkAllDead(player);
+                const allDowned = team.checkAllDowned(player);
+
+                if (allDead || allDowned) {
+                    player.kill(params);
+                    if (allDowned) {
+                        team.killAllTeammates();
+                    }
+                } else {
+                    player.down(params);
+                }
+            },
         });
     }
 }
@@ -254,7 +358,6 @@ export class Game {
     gas: Gas;
 
     now!: number;
-    gameStartTime = 0;
 
     perfTicker = 0;
     tickTimes: number[] = [];
@@ -335,7 +438,7 @@ export class Game {
                     this.tickTimes.reduce((a, b) => a + b) / this.tickTimes.length;
 
                 this.logger.log(
-                    `Avg ms/tick: ${mspt.toFixed(2)} | Load: ${((mspt / (1000 / Config.gameTps)) * 100).toFixed(1)}%`
+                    `Avg ms/tick: ${mspt.toFixed(2)} | Load: ${((mspt / (1000 / Config.gameTps)) * 100).toFixed(1)}%`,
                 );
                 this.tickTimes = [];
             }
@@ -371,7 +474,7 @@ export class Game {
 
     nextTeam(currentTeam: Group) {
         const aliveTeams = Array.from(this.groups.values()).filter(
-            (t) => !t.allDeadOrDisconnected
+            (t) => !t.allDeadOrDisconnected,
         );
         const currentTeamIndex = aliveTeams.indexOf(currentTeam);
         const newIndex = (currentTeamIndex + 1) % aliveTeams.length;
@@ -380,7 +483,7 @@ export class Game {
 
     prevTeam(currentTeam: Group) {
         const aliveTeams = Array.from(this.groups.values()).filter(
-            (t) => !t.allDeadOrDisconnected
+            (t) => !t.allDeadOrDisconnected,
         );
         const currentTeamIndex = aliveTeams.indexOf(currentTeam);
         const newIndex =
@@ -419,7 +522,7 @@ export class Game {
                 emoteMsg.deserialize(stream);
 
                 this.playerBarn.emotes.push(
-                    new Emote(player.__id, emoteMsg.pos, emoteMsg.type, emoteMsg.isPing)
+                    new Emote(player.__id, emoteMsg.pos, emoteMsg.type, emoteMsg.isPing),
                 );
                 break;
             }
@@ -445,7 +548,7 @@ export class Game {
     /** if game over, return group that won */
     isTeamGameOver(): Group | undefined {
         const groupAlives = [...this.groups.values()].filter(
-            (group) => !group.allDeadOrDisconnected
+            (group) => !group.allDeadOrDisconnected,
         );
 
         if (groupAlives.length <= 1) {

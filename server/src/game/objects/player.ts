@@ -299,6 +299,7 @@ export class Player extends BaseGameObject {
     freeSwitchTimer: number = 0;
 
     indoors = false;
+    insideZoomRegion = false;
 
     private _zoom: number = 0;
 
@@ -671,6 +672,9 @@ export class Player extends BaseGameObject {
     weaponManager = new WeaponManager(this);
     recoilTicker = 0;
 
+    // to disable auto pickup for some seconds after dropping something
+    mobileDropTicker = 0;
+
     constructor(game: Game, pos: Vec2, socketData: GameSocketData, joinMsg: net.JoinMsg) {
         super(game, pos);
 
@@ -788,31 +792,11 @@ export class Player extends BaseGameObject {
 
     update(dt: number): void {
         if (this.dead) return;
-
         this.timeAlive += dt;
 
-        const movement = v2.create(0, 0);
-
-        if (this.game.startedTime >= GameConfig.player.gracePeriodTime) {
-            this.posOld = v2.copy(this.pos);
-
-            if (this.touchMoveActive && this.touchMoveLen) {
-                movement.x = this.touchMoveDir.x;
-                movement.y = this.touchMoveDir.y;
-            } else {
-                if (this.moveUp) movement.y++;
-                if (this.moveDown) movement.y--;
-                if (this.moveLeft) movement.x--;
-                if (this.moveRight) movement.x++;
-
-                if (movement.x * movement.y !== 0) {
-                    // If the product is non-zero, then both of the components must be non-zero
-                    movement.x *= Math.SQRT1_2;
-                    movement.y *= Math.SQRT1_2;
-                }
-            }
-        }
-
+        //
+        // Boost logic
+        //
         if (this.boost > 0 && !this.hasPerk("leadership")) {
             this.boost -= 0.375 * dt;
         }
@@ -821,6 +805,9 @@ export class Player extends BaseGameObject {
         else if (this.boost > 50 && this.boost <= 87.5) this.health += 1.5 * dt;
         else if (this.boost > 87.5 && this.boost <= 100) this.health += 1.75 * dt;
 
+        //
+        // Action logic
+        //
         if (
             this.game.contextManager.isReviving(this) ||
             this.game.contextManager.isBeingRevived(this)
@@ -909,6 +896,9 @@ export class Player extends BaseGameObject {
             }
         }
 
+        //
+        // Animation logic
+        //
         if (this.animType !== GameConfig.Anim.None) {
             this._animTicker -= dt;
 
@@ -921,6 +911,9 @@ export class Player extends BaseGameObject {
             }
         }
 
+        //
+        // Haste logic
+        //
         if (this.hasteType != GameConfig.HasteType.None) {
             this._hasteTicker -= dt;
 
@@ -932,6 +925,9 @@ export class Player extends BaseGameObject {
             }
         }
 
+        //
+        // Last breath logic
+        //
         if (this.lastBreathActive) {
             this._lastBreathTicker -= dt;
 
@@ -943,6 +939,9 @@ export class Player extends BaseGameObject {
             }
         }
 
+        //
+        // Bugler logic
+        //
         if (this.bugleTickerActive) {
             this._bugleTicker -= dt;
 
@@ -974,6 +973,30 @@ export class Player extends BaseGameObject {
             }
         }
 
+        //
+        // Calculate new speed, position and check for collision with obstacles
+        //
+        const movement = v2.create(0, 0);
+
+        if (this.game.startedTime >= GameConfig.player.gracePeriodTime) {
+            this.posOld = v2.copy(this.pos);
+
+            if (this.touchMoveActive && this.touchMoveLen) {
+                movement.x = this.touchMoveDir.x;
+                movement.y = this.touchMoveDir.y;
+            } else {
+                if (this.moveUp) movement.y++;
+                if (this.moveDown) movement.y--;
+                if (this.moveLeft) movement.x--;
+                if (this.moveRight) movement.x++;
+
+                if (movement.x * movement.y !== 0) {
+                    // If the product is non-zero, then both of the components must be non-zero
+                    movement.x *= Math.SQRT1_2;
+                    movement.y *= Math.SQRT1_2;
+                }
+            }
+        }
         this.recalculateSpeed();
         this.moveVel = v2.mul(movement, this.speed);
 
@@ -1012,12 +1035,84 @@ export class Player extends BaseGameObject {
             }
         }
 
-        const scopeZoom = this.scopeZoomRadius[this.scope];
-        let finalZoom = this.scopeZoomRadius["1xscope"];
-        let onSmoke = false;
-        let collidesWithZoomOut = false;
+        //
+        // Mobile auto interaction
+        //
+        this.mobileDropTicker -= dt;
+        if (this.isMobile && this.mobileDropTicker <= 0) {
+            const closestLoot = this.getClosestLoot();
+
+            if (closestLoot) {
+                const itemDef = GameObjectDefs[closestLoot.type];
+                switch (itemDef.type) {
+                    case "gun":
+                        const freeSlot = this.getFreeGunSlot(closestLoot);
+                        if (
+                            freeSlot.availSlot > 0 &&
+                            !this.weapons[freeSlot.availSlot].type
+                        ) {
+                            this.pickupLoot(closestLoot);
+                        }
+                        break;
+                    case "melee": {
+                        if (this.weapons[GameConfig.WeaponSlot.Melee].type === "fists") {
+                            this.pickupLoot(closestLoot);
+                        }
+                        break;
+                    }
+                    case "perk": {
+                        if (!this.perks.find((perk) => perk.droppable)) {
+                            this.pickupLoot(closestLoot);
+                        }
+                        break;
+                    }
+                    case "outfit": {
+                        break;
+                    }
+                    case "helmet":
+                    case "chest":
+                    case "backpack": {
+                        const thisLevel = this.getGearLevel(this[itemDef.type]);
+                        const thatLevel = this.getGearLevel(closestLoot.type);
+                        if (thisLevel < thatLevel) {
+                            this.pickupLoot(closestLoot);
+                        }
+                        break;
+                    }
+                    default:
+                        if (
+                            GameConfig.bagSizes[closestLoot.type] &&
+                            this.inventory[closestLoot.type] >=
+                                GameConfig.bagSizes[closestLoot.type][
+                                    this.getGearLevel(this.backpack)
+                                ]
+                        ) {
+                            break;
+                        }
+                        this.pickupLoot(closestLoot);
+                        break;
+                }
+            }
+
+            const closestObstacle = this.getClosestObstacle();
+            if (closestObstacle && closestObstacle.isDoor && !closestObstacle.door.open) {
+                closestObstacle.interact(this);
+            }
+        }
+
+        //
+        // Scope zoom, heal regions and and auto open doors logic
+        //
+
+        let finalZoom = this.scopeZoomRadius[this.scope];
+        let lowestZoom = this.scopeZoomRadius["1xscope"];
 
         let layer = this.layer > 2 ? 0 : this.layer;
+        this.indoors = false;
+
+        let zoomRegionZoom = lowestZoom;
+        let insideNoZoomRegion = true;
+        let insideSmoke = false;
 
         for (let i = 0; i < objs.length; i++) {
             const obj = objs[i];
@@ -1026,9 +1121,8 @@ export class Player extends BaseGameObject {
 
                 if (obj.healRegions) {
                     const healRegion = obj.healRegions.find((hr) => {
-                        return coldet.testCircleAabb(
+                        return coldet.testPointAabb(
                             this.pos,
-                            this.rad,
                             hr.collision.min,
                             hr.collision.max,
                         );
@@ -1044,30 +1138,35 @@ export class Player extends BaseGameObject {
                 for (let i = 0; i < obj.zoomRegions.length; i++) {
                     const zoomRegion = obj.zoomRegions[i];
 
-                    if (zoomRegion.zoomIn) {
-                        if (
-                            coldet.testCircleAabb(
-                                this.pos,
-                                this.rad,
-                                zoomRegion.zoomIn.min,
-                                zoomRegion.zoomIn.max,
-                            )
-                        ) {
-                            this.indoors = true;
-                            finalZoom = zoomRegion.zoom ? zoomRegion.zoom : finalZoom;
+                    if (
+                        zoomRegion.zoomIn &&
+                        coldet.testPointAabb(
+                            this.pos,
+                            zoomRegion.zoomIn.min,
+                            zoomRegion.zoomIn.max,
+                        )
+                    ) {
+                        this.indoors = true;
+                        this.insideZoomRegion = true;
+                        insideNoZoomRegion = false;
+                        if (zoomRegion.zoom) {
+                            zoomRegionZoom = zoomRegion.zoom;
                         }
                     }
 
-                    if (zoomRegion.zoomOut && this.indoors) {
-                        if (
-                            coldet.testCircleAabb(
-                                this.pos,
-                                this.rad,
-                                zoomRegion.zoomOut.min,
-                                zoomRegion.zoomOut.max,
-                            )
-                        ) {
-                            collidesWithZoomOut = true;
+                    if (
+                        zoomRegion.zoomOut &&
+                        coldet.testPointAabb(
+                            this.pos,
+                            zoomRegion.zoomOut.min,
+                            zoomRegion.zoomOut.max,
+                        )
+                    ) {
+                        insideNoZoomRegion = false;
+                        if (this.insideZoomRegion) {
+                            if (zoomRegion.zoom) {
+                                zoomRegionZoom = zoomRegion.zoom;
+                            }
                         }
                     }
                 }
@@ -1084,17 +1183,28 @@ export class Player extends BaseGameObject {
                     obj.interact(this, true);
                 }
             } else if (obj.__type === ObjectType.Smoke) {
+                if (!util.sameLayer(this.layer, obj.layer)) continue;
                 if (coldet.testCircleCircle(this.pos, this.rad, obj.pos, obj.rad)) {
-                    onSmoke = true;
+                    insideSmoke = true;
                 }
             }
         }
 
-        this.zoom = this.indoors ? finalZoom : scopeZoom;
-        if (onSmoke || (this.downed && !GameConfig.player.keepZoomWhileDowned))
-            this.zoom = this.scopeZoomRadius["1xscope"];
-        if (!collidesWithZoomOut) this.indoors = false;
+        if (this.insideZoomRegion) {
+            finalZoom = zoomRegionZoom;
+        }
+        if (insideSmoke) {
+            finalZoom = lowestZoom;
+        }
+        this.zoom = finalZoom;
 
+        if (insideNoZoomRegion) {
+            this.insideZoomRegion = false;
+        }
+
+        //
+        // Calculate layer
+        //
         const originalLayer = this.layer;
         const rot = Math.atan2(this.dir.y, this.dir.x);
         const ori = math.radToOri(rot);
@@ -1114,6 +1224,9 @@ export class Player extends BaseGameObject {
             this.setDirty();
         }
 
+        //
+        // Final position calculation: clamp to map bounds and set dirty if changed
+        //
         this.game.map.clampToMapBounds(this.pos, this.rad);
 
         if (!v2.eq(this.pos, this.posOld)) {
@@ -1121,6 +1234,9 @@ export class Player extends BaseGameObject {
             this.game.grid.updateObject(this);
         }
 
+        //
+        // Downed logic
+        //
         if (this.downed) {
             this.distSinceLastCrawl += v2.distance(this.posOld, this.pos);
 
@@ -1136,6 +1252,9 @@ export class Player extends BaseGameObject {
             }
         }
 
+        //
+        // Weapon stuff
+        //
         this.weaponManager.update(dt);
 
         this.shotSlowdownTimer -= dt;
@@ -1307,8 +1426,8 @@ export class Player extends BaseGameObject {
             if (emotePlayer) {
                 if (
                     ((emote.isPing || emote.itemType) &&
-                        emotePlayer.groupId === this.groupId) ||
-                    (this.visibleObjects.has(emotePlayer) && !emote.isPing)
+                        emotePlayer.groupId === player.groupId) ||
+                    (player.visibleObjects.has(emotePlayer) && !emote.isPing)
                 ) {
                     updateMsg.emotes.push(emote);
                 }
@@ -1331,7 +1450,7 @@ export class Player extends BaseGameObject {
                 coldet.intersectSegmentCircle(
                     bullet.pos,
                     bullet.clientEndPos,
-                    this.pos,
+                    player.pos,
                     extendedRadius,
                 )
             ) {
@@ -2373,6 +2492,7 @@ export class Player extends BaseGameObject {
         for (let i = 0; i < objs.length; i++) {
             const loot = objs[i];
             if (loot.__type !== ObjectType.Loot) continue;
+            if (loot.destroyed) continue;
             if (
                 util.sameLayer(loot.layer, this.layer) &&
                 (loot.ownerId == 0 || loot.ownerId == this.__id)
@@ -2574,6 +2694,8 @@ export class Player extends BaseGameObject {
                     let newGunIdx = freeGunSlot.availSlot;
 
                     let gunType: string | undefined = undefined;
+                    let reload = false;
+
                     if (freeGunSlot.availSlot == -1) {
                         newGunIdx = this.curWeapIdx;
                         if (
@@ -2591,31 +2713,29 @@ export class Player extends BaseGameObject {
 
                             this.weaponManager.dropGun(this.curWeapIdx, false);
                             gunType = obj.type;
-                            this.cancelAction();
-                            this.weaponManager.tryReload();
-                            this.weapsDirty = true;
+                            reload = true;
                         } else {
                             removeLoot = false;
                             pickupMsg.type = net.PickupMsgType.Full;
                         }
                     } else if (freeGunSlot.isDualWield) {
                         gunType = def.dualWieldType!;
-                        this.weapsDirty = true;
                         if (
                             freeGunSlot.availSlot === this.curWeapIdx &&
-                            this.isReloading()
+                            (this.isReloading() ||
+                                !this.weapons[freeGunSlot.availSlot].ammo)
                         ) {
-                            this.cancelAction();
-                            if (!this.weapons[freeGunSlot.availSlot].ammo) {
-                                this.weaponManager.tryReload();
-                            }
+                            reload = true;
                         }
                     } else {
                         gunType = obj.type;
-                        this.weapsDirty = true;
                     }
                     if (gunType) {
-                        this.weaponManager.setWeapon(freeGunSlot.availSlot, gunType, 0);
+                        this.weaponManager.setWeapon(newGunIdx, gunType, 0);
+                    }
+                    if (reload) {
+                        this.cancelAction();
+                        this.weaponManager.tryReload();
                     }
 
                     // always select primary slot if melee or secondary is selected
@@ -2717,6 +2837,7 @@ export class Player extends BaseGameObject {
     }
 
     dropLoot(type: string, count = 1, useCountForAmmo?: boolean) {
+        this.mobileDropTicker = 3;
         this.game.lootBarn.addLoot(
             type,
             this.pos,

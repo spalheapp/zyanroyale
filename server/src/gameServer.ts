@@ -9,7 +9,7 @@ import { Game, type ServerGameConfig } from "./game/game";
 import type { Group } from "./game/group";
 import type { Player } from "./game/objects/player";
 import { Logger } from "./utils/logger";
-import { forbidden, readPostedJSON, returnJson } from "./utils/serverHelpers";
+import { cors, forbidden, readPostedJSON, returnJson } from "./utils/serverHelpers";
 
 export interface FindGameBody {
     region: string;
@@ -308,7 +308,10 @@ export class GameServer {
 
     getPlayerCount() {
         return this.games.reduce((a, b) => {
-            return a + (b ? b.playerBarn.players.length : 0);
+            return (
+                a +
+                (b ? b.playerBarn.livingPlayers.filter((p) => !p.disconnected).length : 0)
+            );
         }, 0);
     }
 
@@ -330,7 +333,10 @@ export class GameServer {
     sendData() {
         try {
             this.fetchApiServer("api/update_region", {
-                playerCount: this.getPlayerCount(),
+                data: {
+                    playerCount: this.getPlayerCount(),
+                },
+                regionId: Config.thisRegion,
             });
         } catch (error) {
             this.logger.warn("Failed to send game data to api server, error: ", error);
@@ -350,11 +356,21 @@ if (process.argv.includes("--game-server")) {
 
     server.init(app);
 
+    app.options("/api/find_game", (res) => {
+        cors(res);
+        res.end();
+    });
     app.post("/api/find_game", async (res) => {
+        let aborted = false;
+        res.onAborted(() => {
+            aborted = true;
+        });
+        cors(res);
         readPostedJSON(
             res,
             async (body: FindGameBody & { apiKey: string }) => {
                 try {
+                    if (aborted) return;
                     if (body.apiKey !== Config.apiKey) {
                         forbidden(res);
                         return;
@@ -362,6 +378,7 @@ if (process.argv.includes("--game-server")) {
                     returnJson(res, await server.findGame(body));
                 } catch (err) {
                     console.error("Find game error:", err);
+                    if (aborted) return;
                     returnJson(res, {
                         res: [
                             {
@@ -373,6 +390,7 @@ if (process.argv.includes("--game-server")) {
             },
             () => {
                 server.logger.warn("/api/find_game: Error retrieving body");
+                if (aborted) return;
                 returnJson(res, {
                     res: [
                         {

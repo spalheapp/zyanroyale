@@ -4,7 +4,7 @@ import { Config, type ConfigType } from "./config";
 import type { FindGameBody, FindGameResponse } from "./gameServer";
 import { TeamMenu } from "./teamMenu";
 import { Logger } from "./utils/logger";
-import { forbidden, readPostedJSON, returnJson } from "./utils/serverHelpers";
+import { cors, forbidden, readPostedJSON, returnJson } from "./utils/serverHelpers";
 
 class Region {
     data: ConfigType["regions"][string];
@@ -67,9 +67,15 @@ export class ApiServer {
         this.teamMenu.init(app);
 
         app.get("/api/site_info", (res) => {
+            cors(res);
             returnJson(res, this.getSiteInfo());
         });
+        app.options("/api/user/profile", (res) => {
+            cors(res);
+            res.end();
+        });
         app.post("/api/user/profile", (res, _req) => {
+            cors(res);
             returnJson(res, this.getUserProfile());
         });
     }
@@ -133,17 +139,29 @@ if (process.argv.includes("--api-server")) {
 
     server.init(app);
 
+    app.options("/api/find_game", (res) => {
+        cors(res);
+        res.end();
+    });
     app.post("/api/find_game", async (res) => {
+        cors(res);
+        let aborted = false;
+        res.onAborted(() => {
+            aborted = true;
+        });
         readPostedJSON(
             res,
             async (body: FindGameBody) => {
                 const data = await server.findGame(body);
+                if (aborted) return;
                 res.cork(() => {
+                    if (aborted) return;
                     returnJson(res, data);
                 });
             },
             () => {
                 server.logger.warn("/api/find_game: Error retrieving body");
+                if (aborted) return;
                 returnJson(res, {
                     res: [
                         {
@@ -155,23 +173,31 @@ if (process.argv.includes("--api-server")) {
         );
     });
 
+    app.options("/api/update_region", (res) => {
+        cors(res);
+        res.end();
+    });
     app.post("/api/update_region", (res) => {
+        cors(res);
+        let aborted = false;
+        res.onAborted(() => {
+            aborted = true;
+        });
         readPostedJSON(
             res,
             (body: {
                 apiKey: string;
                 regionId: string;
-                regionData: { playerCount: number };
+                data: RegionData;
             }) => {
+                if (aborted) return;
                 if (body.apiKey !== Config.apiKey || !(body.regionId in server.regions)) {
                     forbidden(res);
                     return;
                 }
-                server.updateRegion(body.regionId, body.regionData);
+                server.updateRegion(body.regionId, body.data);
             },
-            () => {
-                forbidden(res);
-            },
+            () => {},
         );
     });
 
